@@ -1,0 +1,65 @@
+---
+title: "Untitled"
+output:
+  html_document:
+    css: webex.css
+    includes:
+      after_body: webex.js
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+if (!requireNamespace("webex")) {
+  stop("You must have the 'webex' package installed to knit HTML from this template.\n   devtools::install_github(\"dalejbarr/webex\")")
+} else {
+  library("webex")
+}
+```
+
+This is a Web Exercise template created by the [psychology teaching team at the University of Glasgow](http://www.psy.gla.ac.ukUniversity of Glasgow), based on ideas by [Software Carpentry](https://software-carpentry.org/lessons/). This template enables instructors to easily create web documents that students can use in self-assessment.
+
+The webex package provides a number of functions that you use in [inline R code](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) to create HTML widgets (text boxes, pull down menus, buttons that reveal hidden content). Examples are provided in this document. Knit this file to HTML to see how it works.
+
+*NOTE: If the widgets don't work for you in the built-in RStudio browser, open the HTML file in a different browser.*
+
+## Fill-In-The-Blanks (`fitb()`)
+
+Create fill-in-the-blank questions using `fitb()`, providing the answer as the first argument.
+
+- 2 + 2 is `r fitb("4")`
+
+You can also create these questions dynamically, using variables from your R session.
+
+```{r echo = FALSE}
+x <- sample(2:8, 1)
+```
+
+- The square root of `r x^2` is: `r fitb(x)`
+
+## Multiple Choice (`mcq()`)
+
+- "Never gonna give you up, never gonna: `r mcq(c("let you go", "turn you down", "run away", answer = "let you down"))`"
+
+## True or False (`torf()`)
+
+- You can permute values in a vector using `sample()`. `r torf(TRUE)`
+
+## Hidden solutions and hints (`hide()` and `unhide()`)
+
+- Recreate the scatterplot below, using the built-in `cars` dataset.
+
+```{r echo = FALSE}
+with(cars, plot(speed, dist))
+```
+
+`r hide("I need a hint")`
+`?plot`
+`r unhide()`
+
+`r hide()`
+```{r eval = FALSE}
+with(cars, plot(speed, dist))
+```
+`r unhide()`
+
+*Don't forget to `unhide()` after the solution!*
