@@ -36,6 +36,18 @@ x <- sample(2:8, 1)
 
 - The square root of `r x^2` is: `r fitb(x)`
 
+The blanks are case-sensitive; if you don't care about case, use the argument `ignore_case = TRUE`.
+
+- What is the letter after D? `r fitb("E", ignore_case = TRUE)`
+
+If you want to ignore differences in whitespace use, use the argument `ignore_ws = TRUE` and include spaces in your answer anywhere they could be acceptable..
+
+- How do you load the tidyverse package? `r fitb("library( tidyverse )", ignore_case = TRUE, size = "20")`
+
+You can set more than one possible correct answer by setting the answers as a vector.
+
+- Type a vowel: `r fitb(c("A", "E", "I", "O" , "U"), ignore_case = TRUE)`
+
 ## Multiple Choice (`mcq()`)
 
 - "Never gonna give you up, never gonna: `r mcq(c("let you go", "turn you down", "run away", answer = "let you down"))`"

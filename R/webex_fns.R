@@ -11,8 +11,8 @@ fitb <- function(answer, size = 3,
                        ignore_ws = TRUE) {
   answers <- paste(answer, collapse = " :or: ")
   paste0("<input class=\"solveme",
-         ifelse(ignore_ws, " ignore_ws", ""),
-         ifelse(ignore_case, " ignore_case", ""),
+         ifelse(ignore_ws, " nospaces", ""),
+         ifelse(ignore_case, " ignorecase", ""),
          "\" size=\"", size,
          "\" answer=\"", answers, "\"/>")
 }
