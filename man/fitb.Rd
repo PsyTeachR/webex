@@ -4,12 +4,15 @@
 \alias{fitb}
 \title{Create fill-in-the-blank question}
 \usage{
-fitb(answer, size = 3, ignore_case = FALSE, ignore_ws = TRUE)
+fitb(answer, width = 3, num = FALSE, ignore_case = FALSE,
+  ignore_ws = TRUE)
 }
 \arguments{
 \item{answer}{The correct answer}
 
-\item{size}{Width of the input box in characters}
+\item{width}{Width of the input box in characters}
+
+\item{num}{whether the input is numeric, in which case allow for leading zeroes to be omitted}
 
 \item{ignore_case}{Whether to ignore case (capitalization)}
 

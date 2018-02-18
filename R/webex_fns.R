@@ -1,19 +1,24 @@
 #' Create fill-in-the-blank question
 #'
 #' @param answer The correct answer
-#' @param size Width of the input box in characters
+#' @param width Width of the input box in characters
+#' @param num whether the input is numeric, in which case allow for leading zeroes to be omitted
 #' @param ignore_case Whether to ignore case (capitalization)
 #' @param ignore_ws Whether to ignore white space
 #' @details Writes html code that creates an input box widget. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for examples.
 #' @export
-fitb <- function(answer, size = 3,
-                       ignore_case = FALSE,
-                       ignore_ws = TRUE) {
+fitb <- function(answer, width = 3, num = FALSE,
+                 ignore_case = FALSE,
+                 ignore_ws = TRUE) {
+  if (num) {
+    answer2 <- strip_lzero(answer)
+    answer <- union(answer, answer2)
+  }
   answers <- paste(answer, collapse = " :or: ")
   paste0("<input class=\"solveme",
          ifelse(ignore_ws, " nospaces", ""),
          ifelse(ignore_case, " ignorecase", ""),
-         "\" size=\"", size,
+         "\" size=\"", width,
          "\" answer=\"", answers, "\"/>")
 }
 
@@ -77,4 +82,13 @@ round2 = function(x, digits = 0) {
   z = trunc(z)
   z = z/10^digits
   z*posneg
+}
+
+#' Strip leading zero from numeric string
+#'
+#' @param x a numeric string (or number that can be converted to a string)
+#' @return a string with leading zero removed
+#' @export
+strip_lzero <- function(x) {
+  sub("^([+-]*)0\\.", "\\1.", x)
 }
