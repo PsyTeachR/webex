@@ -29,7 +29,7 @@ fitb <- function(answer, width = 3, num = FALSE,
 #' @export
 mcq <- function(opts) {
   ix <- which(names(opts) == "answer")
-  if (ix == 0) {
+  if (length(ix) == 0) {
     stop("MCQ has no correct answer")
   }
   answers <- jsonlite::toJSON(as.character(opts[ix]))
