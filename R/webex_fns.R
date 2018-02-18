@@ -63,3 +63,18 @@ hide <- function(button_text = "Solution") {
 unhide <- function() {
   paste0("\n</div>\n")
 }
+
+#' Round up from .5
+#'
+#' @param x
+#' @param digits integer indicating the number of decimal places (‘round’) or significant digits (‘signif’) to be used.
+#' @details Implements rounding using the "round up from .5" rule, which is more conventional than the "round to even" rule implemented by R's built-in \code{\link{round}} function. This implementation was taken from \link{https://stackoverflow.com/a/12688836}.
+#' @export
+round2 = function(x, digits = 0) {
+  posneg = sign(x)
+  z = abs(x)*10^digits
+  z = z + 0.5
+  z = trunc(z)
+  z = z/10^digits
+  z*posneg
+}

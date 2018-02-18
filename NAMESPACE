@@ -3,5 +3,6 @@
 export(fitb)
 export(hide)
 export(mcq)
+export(round2)
 export(torf)
 export(unhide)
