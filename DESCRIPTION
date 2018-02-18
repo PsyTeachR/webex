@@ -5,7 +5,10 @@ Authors@R: c(
   person("Dale", "Barr", email = "dale.barr@glasgow.ac.uk", role = c("aut", "cre")),
   person("Lisa", "DeBruine", email = "lisa.debruine@glasgow.ac.uk", role = "aut")
   )
-Description: Functions for easily creating interactive web pages using RMarkdown that students can use in self-assessment
+Description: Functions for easily creating interactive web pages using RMarkdown that students can use in self-assessment.
 Depends: R (>= 3.1.2)
+Imports:
+    jsonlite
 License: MIT
 LazyData: true
+RoxygenNote: 6.0.1

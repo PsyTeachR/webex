@@ -42,7 +42,7 @@ The blanks are case-sensitive; if you don't care about case, use the argument `i
 
 If you want to ignore differences in whitespace use, use the argument `ignore_ws = TRUE` and include spaces in your answer anywhere they could be acceptable..
 
-- How do you load the tidyverse package? `r fitb("library( tidyverse )", ignore_case = TRUE, size = "20")`
+- How do you load the tidyverse package? `r fitb("library( tidyverse )", ignore_case = TRUE, width = "20")`
 
 You can set more than one possible correct answer by setting the answers as a vector.
 
@@ -51,6 +51,7 @@ You can set more than one possible correct answer by setting the answers as a ve
 ## Multiple Choice (`mcq()`)
 
 - "Never gonna give you up, never gonna: `r mcq(c("let you go", "turn you down", "run away", answer = "let you down"))`"
+- "I `r mcq(c(answer = "bless the rains", "guess it rains", "sense the rain"))` down in Africa" -Toto
 
 ## True or False (`torf()`)
 

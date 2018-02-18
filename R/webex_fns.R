@@ -14,25 +14,29 @@ fitb <- function(answer, width = 3, num = FALSE,
     answer2 <- strip_lzero(answer)
     answer <- union(answer, answer2)
   }
-  answers <- paste(answer, collapse = " :or: ")
-  paste0("<input class=\"solveme",
+  answers <- jsonlite::toJSON(as.character(answer))
+  paste0("<input class='solveme",
          ifelse(ignore_ws, " nospaces", ""),
          ifelse(ignore_case, " ignorecase", ""),
-         "\" size=\"", width,
-         "\" answer=\"", answers, "\"/>")
+         "' size='", width,
+         "' data-answer='", answers, "'/>")
 }
 
 #' Create multiple choice question
 #'
-#' @param opts Vector of alternatives. The element of this vector that is named 'answer' is taken as the correct answer. See the Web Exercises RMarkdown template for examples.
+#' @param opts Vector of alternatives. The correct answer is the element(s) of this vector named 'answer'. See the Web Exercises RMarkdown template for examples.
 #' @details Writes html code that creates an option box widget. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for examples.
 #' @export
 mcq <- function(opts) {
   ix <- which(names(opts) == "answer")
-  options <- paste0("<option>",
-                    paste(c("", opts), collapse = "</option>\n<option>"),
+  if (ix == 0) {
+    stop("MCQ has no correct answer")
+  }
+  answers <- jsonlite::toJSON(as.character(opts[ix]))
+  options <- paste0("    <option>",
+                    paste(c("", opts), collapse = "</option>\n    <option>"),
                     "</option>\n")
-  paste0("<select class=\"solveme\" answer=\"", opts[["answer"]], "\">\n",
+  paste0("<select class='solveme' data-answer='", answers, "'>\n",
          options, "</select>\n")
 }
 
@@ -57,7 +61,7 @@ torf <- function(answer) {
 #' @details Writes HTML to create a content that is revealed by a button press. Call this function inline in an RMarkdown document. Any content appearing after this call up to an inline call to \code{unhide()} will only be revealed when the user clicks the button. See the Web Exercises RMarkdown Template for examples.
 #' @export
 hide <- function(button_text = "Solution") {
-  paste0("\n<div class=\"solution\"><button>", button_text, "</button>\n")
+  paste0("\n<div class='solution'><button>", button_text, "</button>\n")
 }
 
 #' End hidden HTML content
@@ -71,9 +75,9 @@ unhide <- function() {
 
 #' Round up from .5
 #'
-#' @param x
-#' @param digits integer indicating the number of decimal places (‘round’) or significant digits (‘signif’) to be used.
-#' @details Implements rounding using the "round up from .5" rule, which is more conventional than the "round to even" rule implemented by R's built-in \code{\link{round}} function. This implementation was taken from \link{https://stackoverflow.com/a/12688836}.
+#' @param x a numeric string (or number that can be converted to a string)
+#' @param digits integer indicating the number of decimal places (`round`) or significant digits (`signif`) to be used.
+#' @details Implements rounding using the "round up from .5" rule, which is more conventional than the "round to even" rule implemented by R's built-in \code{\link{round}} function. This implementation was taken from (https://stackoverflow.com/a/12688836).
 #' @export
 round2 = function(x, digits = 0) {
   posneg = sign(x)
