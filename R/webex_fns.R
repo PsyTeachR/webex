@@ -33,11 +33,11 @@ mcq <- function(opts) {
     stop("MCQ has no correct answer")
   }
   answers <- jsonlite::toJSON(as.character(opts[ix]))
-  options <- paste0("    <option>",
-                    paste(c("", opts), collapse = "</option>\n    <option>"),
-                    "</option>\n")
-  paste0("<select class='solveme' data-answer='", answers, "'>\n",
-         options, "</select>\n")
+  options <- paste0(" <option>",
+                    paste(c("", opts), collapse = "</option> <option>"),
+                    "</option>")
+  paste0("<select class='solveme' data-answer='", answers, "'>",
+         options, "</select>")
 }
 
 #' Create true-or-false question
