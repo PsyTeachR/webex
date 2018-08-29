@@ -36,6 +36,15 @@ solveme_func = function(e) {
   } else {
     cl.remove("correct");
   }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("correct");
+    }  
+  }
+  
   update_total_correct();
 }
 

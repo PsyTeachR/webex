@@ -5,11 +5,12 @@
 #' @param num whether the input is numeric, in which case allow for leading zeroes to be omitted
 #' @param ignore_case Whether to ignore case (capitalization)
 #' @param ignore_ws Whether to ignore white space
+#' @param regex Whether to use regex to match answers (concatenates all answers with `|` before matching)
 #' @details Writes html code that creates an input box widget. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for examples.
 #' @export
 fitb <- function(answer, width = 3, num = FALSE,
                  ignore_case = FALSE,
-                 ignore_ws = TRUE) {
+                 ignore_ws = TRUE, regex=FALSE) {
   if (num) {
     answer2 <- strip_lzero(answer)
     answer <- union(answer, answer2)
@@ -18,6 +19,7 @@ fitb <- function(answer, width = 3, num = FALSE,
   paste0("<input class='solveme",
          ifelse(ignore_ws, " nospaces", ""),
          ifelse(ignore_case, " ignorecase", ""),
+         ifelse(regex, " regex", ""),
          "' size='", width,
          "' data-answer='", answers, "'/>")
 }
