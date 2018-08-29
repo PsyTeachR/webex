@@ -1,20 +1,24 @@
 #' Create fill-in-the-blank question
 #'
 #' @param answer The correct answer
-#' @param width Width of the input box in characters
+#' @param width Width of the input box in characters. Defaults to the length of the longest answer.
 #' @param num whether the input is numeric, in which case allow for leading zeroes to be omitted
 #' @param ignore_case Whether to ignore case (capitalization)
 #' @param ignore_ws Whether to ignore white space
 #' @param regex Whether to use regex to match answers (concatenates all answers with `|` before matching)
 #' @details Writes html code that creates an input box widget. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for examples.
 #' @export
-fitb <- function(answer, width = 3, num = FALSE,
+fitb <- function(answer, width = calculated_width, num = FALSE,
                  ignore_case = FALSE,
                  ignore_ws = TRUE, regex=FALSE) {
   if (num) {
     answer2 <- strip_lzero(answer)
     answer <- union(answer, answer2)
   }
+  
+  # if width not set, calculate it from max length answer, up to limit of 100
+  calculated_width <- min(100, max(purrr::map_int(answer, nchar)))
+  
   answers <- jsonlite::toJSON(as.character(answer))
   paste0("<input class='solveme",
          ifelse(ignore_ws, " nospaces", ""),
