@@ -3,14 +3,23 @@
 #' @param answer The correct answer
 #' @param width Width of the input box in characters. Defaults to the length of the longest answer.
 #' @param num whether the input is numeric, in which case allow for leading zeroes to be omitted
+#' @param tol the tolerance within which numeric answers will be accepts; i.e. (response - true.answer) < tol = a correct response. Implies num=TRUE
 #' @param ignore_case Whether to ignore case (capitalization)
 #' @param ignore_ws Whether to ignore white space
 #' @param regex Whether to use regex to match answers (concatenates all answers with `|` before matching)
 #' @details Writes html code that creates an input box widget. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for examples.
 #' @export
-fitb <- function(answer, width = calculated_width, num = FALSE,
+fitb <- function(answer, width = calculated_width, 
+                 num = FALSE,
                  ignore_case = FALSE,
+                 tol=NULL,
                  ignore_ws = TRUE, regex=FALSE) {
+  
+  
+  if(!is.null(tol)){
+    num <- TRUE
+  } 
+
   if (num) {
     answer2 <- strip_lzero(answer)
     answer <- union(answer, answer2)
@@ -22,6 +31,7 @@ fitb <- function(answer, width = calculated_width, num = FALSE,
   answers <- jsonlite::toJSON(as.character(answer))
   paste0("<input class='solveme",
          ifelse(ignore_ws, " nospaces", ""),
+         ifelse(!is.null(tol), paste0("' data-tol='", tol, ""), ""),
          ifelse(ignore_case, " ignorecase", ""),
          ifelse(regex, " regex", ""),
          "' size='", width,
