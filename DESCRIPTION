@@ -8,7 +8,10 @@ Authors@R: c(
 Description: Functions for easily creating interactive web pages using RMarkdown that students can use in self-assessment.
 Depends: R (>= 3.1.2)
 Imports:
-    jsonlite
-License: MIT
+    jsonlite,
+    rmarkdown
+License: MIT + file LICENSE
 LazyData: true
 RoxygenNote: 6.1.1
+Suggests: 
+    testthat
