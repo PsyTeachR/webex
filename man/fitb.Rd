@@ -4,19 +4,23 @@
 \alias{fitb}
 \title{Create fill-in-the-blank question}
 \usage{
-fitb(answer, width = 3, num = FALSE, ignore_case = FALSE,
-  ignore_ws = TRUE)
+fitb(answer, width = calculated_width, num = FALSE,
+  ignore_case = FALSE, tol = NULL, ignore_ws = TRUE, regex = FALSE)
 }
 \arguments{
 \item{answer}{The correct answer}
 
-\item{width}{Width of the input box in characters}
+\item{width}{Width of the input box in characters. Defaults to the length of the longest answer.}
 
 \item{num}{whether the input is numeric, in which case allow for leading zeroes to be omitted}
 
 \item{ignore_case}{Whether to ignore case (capitalization)}
 
+\item{tol}{the tolerance within which numeric answers will be accepts; i.e. (response - true.answer) < tol = a correct response. Implies num=TRUE}
+
 \item{ignore_ws}{Whether to ignore white space}
+
+\item{regex}{Whether to use regex to match answers (concatenates all answers with `|` before matching)}
 }
 \description{
 Create fill-in-the-blank question

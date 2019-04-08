@@ -1,6 +1,6 @@
 Package: webex
 Title: Web exercises for student self-assessment
-Version: 0.0.0.9000
+Version: 0.0.0.9200
 Authors@R: c(
   person("Dale", "Barr", email = "dale.barr@glasgow.ac.uk", role = c("aut", "cre")),
   person("Lisa", "DeBruine", email = "lisa.debruine@glasgow.ac.uk", role = "aut")
@@ -11,4 +11,4 @@ Imports:
     jsonlite
 License: MIT
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
