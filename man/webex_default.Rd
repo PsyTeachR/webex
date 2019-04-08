@@ -4,10 +4,10 @@
 \alias{webex_default}
 \title{Create default webex document}
 \usage{
-webex_default(toc = FALSE)
+webex_default(...)
 }
 \arguments{
-\item{toc}{Whether to include a table of contents.}
+\item{...}{Additional function arguments to pass to html_document}
 }
 \description{
 This function wraps \code{rmarkdown::html_document} to configure compilation to embed the default webex CSS and JavaScript files in the resulting HTML.

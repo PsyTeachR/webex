@@ -26,7 +26,7 @@ fitb <- function(answer, width = calculated_width,
   }
   
   # if width not set, calculate it from max length answer, up to limit of 100
-  calculated_width <- min(100, max(purrr::map_int(answer, nchar)))
+  calculated_width <- min(100, max(nchar(answer)))
   
   answers <- jsonlite::toJSON(as.character(answer))
   paste0("<input class='solveme",
@@ -87,6 +87,21 @@ hide <- function(button_text = "Solution") {
 #' @export
 unhide <- function() {
   paste0("\n</div>\n")
+}
+
+#' Change webex widget style
+#'
+#' @param default the colour of the widgets when the correct answer is not filled in (defaults to blue)
+#' @param correct the colour of the widgets when the correct answer not filled in (defaults to red)
+#' @details Call this function inline in an RMarkdown document to change the default and correct colours using any valid HTML colour word (e.g., red, rgb(255,0,0), hsl(0, 100%, 50%) or #FF0000).
+#' @export
+widget_style <- function(default = "blue", correct = "red") {
+  paste0(
+    "\n<style>\n",
+    "    .solveme { border-color: ", default,"; }\n",
+    "    .solveme.correct { border-color: ", correct,"; }\n",
+    "</style>\n\n"
+  )
 }
 
 #' Round up from .5
