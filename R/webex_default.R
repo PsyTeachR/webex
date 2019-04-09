@@ -9,5 +9,7 @@ webex_default <- function(...) {
   js <- system.file("reports/default/webex.js", package = "webex")
 
   rmarkdown::html_document(css = css,
-                           includes = rmarkdown::includes(after_body = js), ...)
+                           includes = rmarkdown::includes(after_body = js), 
+                           smart = FALSE,
+                           ...)
 }
