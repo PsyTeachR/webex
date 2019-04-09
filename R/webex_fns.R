@@ -1,19 +1,23 @@
 #' Create fill-in-the-blank question
 #'
-#' @param answer The correct answer
+#' @param answer The correct answer (can be a vector of >1 correct answers)
 #' @param width Width of the input box in characters. Defaults to the length of the longest answer.
-#' @param num whether the input is numeric, in which case allow for leading zeroes to be omitted
-#' @param tol the tolerance within which numeric answers will be accepts; i.e. (response - true.answer) < tol = a correct response. Implies num=TRUE
+#' @param num Whether the input is numeric, in which case allow for leading zeroes to be omitted
+#' @param tol The tolerance within which numeric answers will be accepted; i.e. abs(response - true.answer) < tol = a correct response. Implies num=TRUE
 #' @param ignore_case Whether to ignore case (capitalization)
 #' @param ignore_ws Whether to ignore white space
 #' @param regex Whether to use regex to match answers (concatenates all answers with `|` before matching)
 #' @details Writes html code that creates an input box widget. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for examples.
+#' @example 
+#' fitb()
 #' @export
-fitb <- function(answer, width = calculated_width, 
+fitb <- function(answer, 
+                 width = calculated_width, 
                  num = FALSE,
                  ignore_case = FALSE,
-                 tol=NULL,
-                 ignore_ws = TRUE, regex=FALSE) {
+                 tol = NULL,
+                 ignore_ws = TRUE, 
+                 regex = FALSE) {
   
   
   if(!is.null(tol)){
@@ -29,6 +33,8 @@ fitb <- function(answer, width = calculated_width,
   calculated_width <- min(100, max(nchar(answer)))
   
   answers <- jsonlite::toJSON(as.character(answer))
+  answers <- gsub("\'", "&apos;", answers, fixed = TRUE)
+  
   paste0("<input class='solveme",
          ifelse(ignore_ws, " nospaces", ""),
          ifelse(!is.null(tol), paste0("' data-tol='", tol, ""), ""),
@@ -49,6 +55,8 @@ mcq <- function(opts) {
     stop("MCQ has no correct answer")
   }
   answers <- jsonlite::toJSON(as.character(opts[ix]))
+  answers <- gsub("\'", "&apos;", answers, fixed = TRUE)
+  
   options <- paste0(" <option>",
                     paste(c("", opts), collapse = "</option> <option>"),
                     "</option>")
