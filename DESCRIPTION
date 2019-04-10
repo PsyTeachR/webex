@@ -1,16 +1,18 @@
 Package: webex
-Title: Web exercises for student self-assessment
-Version: 0.0.0.9200
+Version: 0.9-1
+Date: 2019-04-10
+Title: Create interactive web exercises using RMarkdown
 Authors@R: c(
   person("Dale", "Barr", email = "dale.barr@glasgow.ac.uk", role = c("aut", "cre")),
   person("Lisa", "DeBruine", email = "lisa.debruine@glasgow.ac.uk", role = "aut")
   )
-Description: Functions for easily creating interactive web pages using RMarkdown that students can use in self-assessment.
+Maintainer: Dale Barr <dale.barr@glasgow.ac.uk>
+Description: Functions for easily creating interactive web pages using RMarkdown that students can use in self-guided learning.
 Depends: R (>= 3.1.2)
 Imports:
     jsonlite,
     rmarkdown
-License: MIT + file LICENSE
+License: CC BY-SA 4.0
 LazyData: true
 RoxygenNote: 6.1.1
 Suggests: 
