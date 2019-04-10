@@ -5,7 +5,7 @@
 The webex package
 =================
 
-<img src="https://github.com/PsyTeachR/misc/blob/master/img/webex.001.png" style="width:300px;" />
+<img src="https://github.com/PsyTeachR/misc/blob/master/img/webex.001.png" width="300px" />
 
 The goal of webex is to enable instructors to easily create web documents that students can use in self-guided learning.
 
