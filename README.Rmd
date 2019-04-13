@@ -20,23 +20,35 @@ knitr::opts_chunk$set(
 
 <img src="https://github.com/PsyTeachR/misc/blob/master/img/webex.001.png" width="300px" />
 
-The goal of webex is to enable instructors to easily create web documents that students can use in self-guided learning.
+The goal of webex is to enable instructors to easily create interactive web pages that students can use in self-guided learning. Although webex has fewer features than RStudio's [learnr](https://rstudio.github.io/learnr/) package, it is more lightweight: whereas learnr tutorials must be either hosted on a shiny server or run locally, webex creates standalone HTML files that require only a JavaScript-enabled browser. It is also extremely simple to use.
 
 ## Installation
 
 You can install the development version of webex from [GitHub](https://github.com/PsyTeachR/webex) with:
 
-``` r
+```{r install-webex, message=FALSE}
+library("tidyverse")
 devtools::install_github("PsyTeachR/webex")
 ```
 
-The webex package provides a number of functions that you use in [inline R code](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) to create HTML widgets (text boxes, pull down menus, buttons that reveal hidden content). Examples are provided in the **Web Exercises** R Markdown template. 
+## Creating interactive widgets with inline code
 
-To create a file from the webex template in RStudio, click `File -> New File... -> RMarkdown` and in the dialog box that appears, select `From Template` and choose `Web Exercises`.
+The webex package provides functions that create HTML widgets using [inline R code](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf).  These functions are:
+
+|function                |widget         |description                    |
+|:-----------------------|:--------------|:------------------------------|
+|`fitb()`                |text box       |fill-in-the-blank question     |
+|`mcq()`                 |pull-down menu |multiple choice question       |
+|`torf()`                |pull-down menu |TRUE or FALSE question         |
+|`hide()` and `unhide()` |button         |solution revealed when clicked |
+
+The appearance of the text box and pull-down menu widgets changes when users enter the correct answer. Answers can be either static or dynamic (i.e., specified using R code). Widget styles can be changed using `style_widgets()`.
+
+Examples are provided in the **Web Exercises** R Markdown template. To create a file from the webex template in RStudio, click `File -> New File... -> RMarkdown` and in the dialog box that appears, select `From Template` and choose `Web Exercises`.
 
 Alternatively (or if you're not using RStudio) use:
 
-``` r
+```{r compile-webex}
 rmarkdown::draft("exercises.Rmd", "webex", "webex")
 ```
 

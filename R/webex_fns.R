@@ -103,7 +103,7 @@ unhide <- function() {
 #' @param correct the colour of the widgets when the correct answer not filled in (defaults to red)
 #' @details Call this function inline in an RMarkdown document to change the default and correct colours using any valid HTML colour word (e.g., red, rgb(255,0,0), hsl(0, 100%, 50%) or #FF0000).
 #' @export
-widget_style <- function(default = "blue", correct = "red") {
+style_widgets <- function(default = "blue", correct = "red") {
   paste0(
     "\n<style>\n",
     "    .solveme { border-color: ", default,"; }\n",

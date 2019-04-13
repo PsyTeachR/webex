@@ -12,9 +12,9 @@ if (!requireNamespace("webex")) {
 }
 ```
 
-This is a Web Exercise template created by the [psychology teaching team at the University of Glasgow](http://www.psy.gla.ac.uk), based on ideas by [Software Carpentry](https://software-carpentry.org/lessons/). This template enables instructors to easily create web documents that students can use in self-assessment.
+This is a Web Exercise template created by the [psychology teaching team at the University of Glasgow](http://www.psy.gla.ac.uk), based on ideas from [Software Carpentry](https://software-carpentry.org/lessons/). This template shows how instructors can easily create interactive web documents that students can use in self-guided learning.
 
-The webex package provides a number of functions that you use in [inline R code](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) to create HTML widgets (text boxes, pull down menus, buttons that reveal hidden content). Examples are provided in this document. Knit this file to HTML to see how it works.
+The webex package provides a number of functions that you use in [inline R code](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) to create HTML widgets (text boxes, pull down menus, buttons that reveal hidden content). Examples are given below. Knit this file to HTML to see how it works.
 
 **NOTE: To use the widgets in the compiled HTML file, you need to have a JavaScript-enabled browser. The widgets don't work in the built-in RStudio browser. In the built-in browser, click the "Open in Browser" button to open the file in your operating system's browser.**
 
@@ -36,9 +36,9 @@ The blanks are case-sensitive; if you don't care about case, use the argument `i
 
 - What is the letter after D? `r fitb("E", ignore_case = TRUE)`
 
-If you want to ignore differences in whitespace use, use the argument `ignore_ws = TRUE` and include spaces in your answer anywhere they could be acceptable..
+If you want to ignore differences in whitespace use, use the argument `ignore_ws = TRUE` (which is the default) and include spaces in your answer anywhere they could be acceptable.
 
-- How do you load the tidyverse package? `r fitb("library( tidyverse )", ignore_case = TRUE, width = "20")`
+- How do you load the tidyverse package? `r fitb(c("library( tidyverse )", "library( \"tidyverse\" )", "library( 'tidyverse' )"), ignore_case = TRUE, width = "20", regex = TRUE)`
 
 You can set more than one possible correct answer by setting the answers as a vector.
 
@@ -51,24 +51,28 @@ You can set more than one possible correct answer by setting the answers as a ve
 
 ## True or False (`torf()`)
 
-- You can permute values in a vector using `sample()`. `r torf(TRUE)`
+- True or False? You can permute values in a vector using `sample()`. `r torf(TRUE)`
 
-## Hidden solutions and hints (`hide()` and `unhide()`)
+## Hidden solutions and hints
 
-- Recreate the scatterplot below, using the built-in `cars` dataset.
+You can fence off a solution area that will be hidden behind a button using `hide()` before the solution and `unhide()` after, each as inline R code.  Pass the text you want to appear on the button to the `hide()` function.
+
+If the solution is an RMarkdown code chunk, instead of using `hide()` and `unhide()`, simply set the `webex.hide` chunk option to TRUE, or set it to the string you wish to display on the button.
+
+### Example problem
+
+**Recreate the scatterplot below, using the built-in `cars` dataset.**
 
 ```{r echo = FALSE}
 with(cars, plot(speed, dist))
 ```
 
 `r hide("I need a hint")`
-`?plot`
+See the documentation for `plot()` (`?plot`)
 `r unhide()`
 
-`r hide()`
-```{r eval = FALSE}
-with(cars, plot(speed, dist))
+<!-- note: you could also just set webex.hide to TRUE -->
+
+```{r eval = FALSE, webex.hide="Click here to see the solution"}
+plot(cars$speed, cars$dist)
 ```
-`r unhide()`
-
-*Don't forget to `unhide()` after the solution!*

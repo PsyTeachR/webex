@@ -3,7 +3,7 @@
 .solveme.correct { border: 2px solid blue; }
 /* styles for hidden solutions */
 .solution {
-    height: 2em;
+    height: 2.5em;
     overflow-y: hidden;
     padding: 0.5em;
 }
@@ -13,7 +13,7 @@
     border-radius: 5px;
 }
 .solution button {
-    height: 1.5em;
+    height: 2em;
     margin-bottom: 0.5em;
 }
 .solution pre.sourceCode {

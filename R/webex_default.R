@@ -8,6 +8,18 @@ webex_default <- function(...) {
   css <- system.file("reports/default/webex.css", package = "webex")
   js <- system.file("reports/default/webex.js", package = "webex")
 
+  knitr::knit_hooks$set(webex.hide = function(before, options, envir) {
+    if (before) {
+      if (is.character(options$webex.hide)) {
+        hide(options$webex.hide)
+      } else {
+        hide()
+      }
+    } else {
+      unhide()
+    }
+  })
+  
   rmarkdown::html_document(css = css,
                            includes = rmarkdown::includes(after_body = js), 
                            smart = FALSE,
