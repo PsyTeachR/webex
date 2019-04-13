@@ -7,13 +7,17 @@
 round2(x, digits = 0)
 }
 \arguments{
-\item{x}{a numeric string (or number that can be converted to a string)}
+\item{x}{A numeric string (or number that can be converted to a string).}
 
-\item{digits}{integer indicating the number of decimal places (`round`) or significant digits (`signif`) to be used.}
+\item{digits}{Integer indicating the number of decimal places (`round`) or significant digits (`signif`) to be used.}
 }
 \description{
 Round up from .5
 }
 \details{
-Implements rounding using the "round up from .5" rule, which is more conventional than the "round to even" rule implemented by R's built-in \code{\link{round}} function. This implementation was taken from (https://stackoverflow.com/a/12688836).
+Implements rounding using the "round up from .5" rule, which is more conventional than the "round to even" rule implemented by R's built-in \code{\link{round}} function. This implementation was taken from \url{https://stackoverflow.com/a/12688836}.
+}
+\examples{
+round2(c(2, 2.5))
+# compare to: round(c(2, 2.5))
 }

@@ -2,16 +2,23 @@
 % Please edit documentation in R/webex_fns.R
 \name{mcq}
 \alias{mcq}
-\title{Create multiple choice question}
+\title{Create a multiple-choice question}
 \usage{
 mcq(opts)
 }
 \arguments{
-\item{opts}{Vector of alternatives. The correct answer is the element(s) of this vector named 'answer'. See the Web Exercises RMarkdown template for examples.}
+\item{opts}{Vector of alternatives. The correct answer is the element(s) of this vector named 'answer'.}
 }
 \description{
-Create multiple choice question
+Create a multiple-choice question
 }
 \details{
-Writes html code that creates an option box widget. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for examples.
+Writes html code that creates an option box widget, with a single correct answer. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for further examples.
+}
+\examples{
+# How many planets orbit closer to the sun than the Earth?
+mcq(c(1, answer = 2, 3))
+
+# Which actor played Luke Skywalker in the movie Star Wars?
+mcq(c("Alec Guinness", answer = "Mark Hamill", "Harrison Ford"))
 }

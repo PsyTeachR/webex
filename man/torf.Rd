@@ -2,7 +2,7 @@
 % Please edit documentation in R/webex_fns.R
 \name{torf}
 \alias{torf}
-\title{Create true-or-false question}
+\title{Create a true-or-false question}
 \usage{
 torf(answer)
 }
@@ -10,8 +10,12 @@ torf(answer)
 \item{answer}{Logical value TRUE or FALSE, corresponding to the correct answer.}
 }
 \description{
-Create true-or-false question
+Create a true-or-false question
 }
 \details{
-Writes html code that creates an option box widget with TRUE or FALSE as alternatives. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for examples.
+Writes html code that creates an option box widget with TRUE or FALSE as alternatives. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for further examples.
+}
+\examples{
+# Is 2 + 2 = 4?
+torf(TRUE)
 }

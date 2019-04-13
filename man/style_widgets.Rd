@@ -7,9 +7,9 @@
 style_widgets(default = "blue", correct = "red")
 }
 \arguments{
-\item{default}{the colour of the widgets when the correct answer is not filled in (defaults to blue)}
+\item{default}{The colour of the widgets when the correct answer is not filled in (defaults to blue).}
 
-\item{correct}{the colour of the widgets when the correct answer not filled in (defaults to red)}
+\item{correct}{The colour of the widgets when the correct answer not filled in (defaults to red).}
 }
 \description{
 Change webex widget style

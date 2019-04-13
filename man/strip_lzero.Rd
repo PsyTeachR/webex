@@ -7,11 +7,14 @@
 strip_lzero(x)
 }
 \arguments{
-\item{x}{a numeric string (or number that can be converted to a string)}
+\item{x}{A numeric string (or number that can be converted to a string).}
 }
 \value{
-a string with leading zero removed
+A string with leading zero removed.
 }
 \description{
 Strip leading zero from numeric string
+}
+\examples{
+strip_lzero("0.05")
 }

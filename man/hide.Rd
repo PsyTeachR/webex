@@ -2,15 +2,15 @@
 % Please edit documentation in R/webex_fns.R
 \name{hide}
 \alias{hide}
-\title{Create button revealing hidden HTML content}
+\title{Create button revealing hidden content}
 \usage{
 hide(button_text = "Solution")
 }
 \arguments{
-\item{button_text}{Text to appear on the button that reveals the hidden content}
+\item{button_text}{Text to appear on the button that reveals the hidden content.}
 }
 \description{
-Create button revealing hidden HTML content
+Create button revealing hidden content
 }
 \details{
 Writes HTML to create a content that is revealed by a button press. Call this function inline in an RMarkdown document. Any content appearing after this call up to an inline call to \code{unhide()} will only be revealed when the user clicks the button. See the Web Exercises RMarkdown Template for examples.

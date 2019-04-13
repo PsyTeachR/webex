@@ -1,4 +1,6 @@
 ^README\.Rmd$
-^LICENSE\.md$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^\.Rhistory
+^\.git
+^\.gitignore

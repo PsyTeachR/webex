@@ -2,29 +2,39 @@
 % Please edit documentation in R/webex_fns.R
 \name{fitb}
 \alias{fitb}
-\title{Create fill-in-the-blank question}
+\title{Create a fill-in-the-blank question}
 \usage{
 fitb(answer, width = calculated_width, num = FALSE,
   ignore_case = FALSE, tol = NULL, ignore_ws = TRUE, regex = FALSE)
 }
 \arguments{
-\item{answer}{The correct answer (can be a vector of >1 correct answers)}
+\item{answer}{The correct answer (can be a vector if there is more than one correct answer).}
 
 \item{width}{Width of the input box in characters. Defaults to the length of the longest answer.}
 
-\item{num}{Whether the input is numeric, in which case allow for leading zeroes to be omitted}
+\item{num}{Whether the input is numeric, in which case allow for leading zeroes to be omitted.}
 
-\item{ignore_case}{Whether to ignore case (capitalization)}
+\item{ignore_case}{Whether to ignore case (capitalization).}
 
-\item{tol}{The tolerance within which numeric answers will be accepted; i.e. abs(response - true.answer) < tol = a correct response. Implies num=TRUE}
+\item{tol}{The tolerance within which numeric answers will be accepted; i.e. if \code{abs(response - true.answer) < tol}, the answer is correct (implies \code{num=TRUE}).}
 
-\item{ignore_ws}{Whether to ignore white space}
+\item{ignore_ws}{Whether to ignore whitespace.}
 
-\item{regex}{Whether to use regex to match answers (concatenates all answers with `|` before matching)}
+\item{regex}{Whether to use regex to match answers (concatenates all answers with `|` before matching).}
 }
 \description{
-Create fill-in-the-blank question
+Create a fill-in-the-blank question
 }
 \details{
-Writes html code that creates an input box widget. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for examples.
+Writes html code that creates an input box widget. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for examples of its use in RMarkdown.
+}
+\examples{
+# What is 2 + 2?
+fitb(4, num = TRUE)
+
+# What was the name of the Beatles drummer?
+fitb(c("Ringo", "Ringo Starr"), ignore_case = TRUE)
+
+# What is pi to three decimal places?
+fitb(pi, num = TRUE, tol = .001)
 }
