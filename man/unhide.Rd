@@ -12,6 +12,10 @@ End hidden HTML content
 \details{
 Call this function inline in an RMarkdown document to mark the end of hidden content (see the Web Exercises RMarkdown Template for examples).
 }
+\examples{
+# just produce the closing </div> 
+unhide()
+}
 \seealso{
 \code{hide}
 }

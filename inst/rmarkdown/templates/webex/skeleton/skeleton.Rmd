@@ -76,3 +76,11 @@ See the documentation for `plot()` (`?plot`)
 ```{r eval = FALSE, webex.hide="Click here to see the solution"}
 plot(cars$speed, cars$dist)
 ```
+
+<!-- TO CHANGE WIDGET COLOURS:
+  move command below out of this HTML comment area
+  and then re-compile;
+  unfilled becomes yellow, correct becomes pink 
+     
+`r style_widgets("#FFFF00", "#FF3399")`
+-->

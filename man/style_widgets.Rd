@@ -17,3 +17,14 @@ Change webex widget style
 \details{
 Call this function inline in an RMarkdown document to change the default and correct colours using any valid HTML colour word (e.g., red, rgb(255,0,0), hsl(0, 100%, 50%) or #FF0000).
 }
+\examples{
+# change to green when correct
+style_widgets(correct = "green")
+# (in R Markdown:)
+# What is 2 + 2? `r fitb(4, num = TRUE)`
+
+# yellow when unfilled, pink when correct
+style_widgets("#FFFF00", "#FF3399")
+# (in R Markdown:)
+# What is 2 + 2? `r fitb(4, num = TRUE)`
+}

@@ -1,9 +1,9 @@
 Package: webex
-Version: 0.9.0
-Date: 2019-04-12
-Title: Create Interactive Web Exercises in RMarkdown
+Version: 0.9.1
+Date: 2019-04-25
+Title: Create Interactive Web Exercises in 'R Markdown'
 Description: Functions for easily creating interactive web pages using
-    RMarkdown that students can use in self-guided learning.
+    'R Markdown' that students can use in self-guided learning.
 Authors@R: c(person("Dale", "Barr", email = "dalejbarr@protonmail.com",
   role = c("aut", "cre")),
   person("Lisa", "DeBruine", email = "lisa.debruine@glasgow.ac.uk",
