@@ -16,8 +16,17 @@ This function wraps \code{rmarkdown::html_document} to configure compilation to 
 Call this function as the \code{output_format} argument for the \code{\link[rmarkdown]{render}} function when compiling HTML documents from RMarkdown source.
 }
 \examples{
+# copy the webex 'R Markdown' template to a temporary file
+my_rmd <- tempfile(fileext = ".Rmd")
+file.copy(system.file("rmarkdown", "templates", "webex", "skeleton",
+                      "skeleton.Rmd", package = "webex"), my_rmd)
+
+# compile it
+rmarkdown::render(my_rmd, webex::webex_default())
+
+# view the result
 \dontrun{
-rmarkdown::render("my_exercise.Rmd", webex::webex_default())
+browseURL(sub("\\\\.Rmd$", ".html", my_rmd))
 }
 }
 \seealso{
