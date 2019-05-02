@@ -133,13 +133,9 @@ unhide <- function() {
 #' @examples
 #' # change to green when correct
 #' style_widgets(correct = "green")
-#' # (in R Markdown:)
-#' # What is 2 + 2? `r fitb(4, num = TRUE)`
 #'
 #' # yellow when unfilled, pink when correct
 #' style_widgets("#FFFF00", "#FF3399")
-#' # (in R Markdown:)
-#' # What is 2 + 2? `r fitb(4, num = TRUE)`
 #' @export
 style_widgets <- function(default = "blue", correct = "red") {
   paste0(
@@ -157,7 +153,9 @@ style_widgets <- function(default = "blue", correct = "red") {
 #' @details Implements rounding using the "round up from .5" rule, which is more conventional than the "round to even" rule implemented by R's built-in \code{\link{round}} function. This implementation was taken from \url{https://stackoverflow.com/a/12688836}.
 #' @examples
 #' round2(c(2, 2.5))
-#' # compare to: round(c(2, 2.5))
+#' 
+#' # compare to:
+#' round(c(2, 2.5))
 #' @export
 round2 <- function(x, digits = 0) {
   posneg = sign(x)

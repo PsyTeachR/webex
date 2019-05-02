@@ -8,15 +8,14 @@
 #' @seealso \code{\link[rmarkdown]{render}}, \code{\link[rmarkdown]{html_document}}
 #' @examples
 #' # copy the webex 'R Markdown' template to a temporary file
+#' \dontrun{
 #' my_rmd <- tempfile(fileext = ".Rmd")
-#' file.copy(system.file("rmarkdown", "templates", "webex", "skeleton",
-#'                       "skeleton.Rmd", package = "webex"), my_rmd)
+#' rmarkdown::draft(my_rmd, "webex", "webex")
 #'
 #' # compile it
 #' rmarkdown::render(my_rmd, webex::webex_default())
 #' 
 #' # view the result
-#' \dontrun{
 #' browseURL(sub("\\.Rmd$", ".html", my_rmd))
 #' }
 #' @export

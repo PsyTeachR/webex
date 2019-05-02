@@ -20,11 +20,7 @@ Call this function inline in an RMarkdown document to change the default and cor
 \examples{
 # change to green when correct
 style_widgets(correct = "green")
-# (in R Markdown:)
-# What is 2 + 2? `r fitb(4, num = TRUE)`
 
 # yellow when unfilled, pink when correct
 style_widgets("#FFFF00", "#FF3399")
-# (in R Markdown:)
-# What is 2 + 2? `r fitb(4, num = TRUE)`
 }

@@ -19,5 +19,7 @@ Implements rounding using the "round up from .5" rule, which is more conventiona
 }
 \examples{
 round2(c(2, 2.5))
-# compare to: round(c(2, 2.5))
+
+# compare to:
+round(c(2, 2.5))
 }
