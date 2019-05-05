@@ -16,6 +16,9 @@ Create a true-or-false question
 Writes html code that creates an option box widget with TRUE or FALSE as alternatives. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for further examples.
 }
 \examples{
-# Is 2 + 2 = 4?
+# True or False? 2 + 2 = 4
 torf(TRUE)
+
+# True or False? The month of April has 31 days.
+torf(FALSE)
 }

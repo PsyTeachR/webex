@@ -7,8 +7,16 @@
 #' @param ... Additional function arguments to pass to \code{\link[rmarkdown]{html_document}}.
 #' @seealso \code{\link[rmarkdown]{render}}, \code{\link[rmarkdown]{html_document}}
 #' @examples
+#' # copy the webex 'R Markdown' template to a temporary file
 #' \dontrun{
-#' rmarkdown::render("my_exercise.Rmd", webex::webex_default())
+#' my_rmd <- tempfile(fileext = ".Rmd")
+#' rmarkdown::draft(my_rmd, "webex", "webex")
+#'
+#' # compile it
+#' rmarkdown::render(my_rmd, webex::webex_default())
+#' 
+#' # view the result
+#' browseURL(sub("\\.Rmd$", ".html", my_rmd))
 #' }
 #' @export
 webex_default <- function(...) {

@@ -82,8 +82,11 @@ mcq <- function(opts) {
 #' @param answer Logical value TRUE or FALSE, corresponding to the correct answer.
 #' @details Writes html code that creates an option box widget with TRUE or FALSE as alternatives. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for further examples.
 #' @examples
-#' # Is 2 + 2 = 4?
+#' # True or False? 2 + 2 = 4
 #' torf(TRUE)
+#'
+#' # True or False? The month of April has 31 days.
+#' torf(FALSE)
 #' @export
 torf <- function(answer) {
   opts <- c("TRUE", "FALSE")
@@ -99,6 +102,12 @@ torf <- function(answer) {
 #' @param button_text Text to appear on the button that reveals the hidden content.
 #' @seealso \code{unhide}
 #' @details Writes HTML to create a content that is revealed by a button press. Call this function inline in an RMarkdown document. Any content appearing after this call up to an inline call to \code{unhide()} will only be revealed when the user clicks the button. See the Web Exercises RMarkdown Template for examples.
+#' @examples
+#' # default behavior is to generate a button that says "Solution"
+#' hide()
+#'
+#' # or the button can display custom text
+#' hide("Click here for a hint")
 #' @export
 hide <- function(button_text = "Solution") {
   paste0("\n<div class='solution'><button>", button_text, "</button>\n")
@@ -108,6 +117,9 @@ hide <- function(button_text = "Solution") {
 #'
 #' @seealso \code{hide}
 #' @details Call this function inline in an RMarkdown document to mark the end of hidden content (see the Web Exercises RMarkdown Template for examples).
+#' @examples
+#' # just produce the closing </div> 
+#' unhide()
 #' @export
 unhide <- function() {
   paste0("\n</div>\n")
@@ -118,6 +130,12 @@ unhide <- function() {
 #' @param default The colour of the widgets when the correct answer is not filled in (defaults to blue).
 #' @param correct The colour of the widgets when the correct answer not filled in (defaults to red).
 #' @details Call this function inline in an RMarkdown document to change the default and correct colours using any valid HTML colour word (e.g., red, rgb(255,0,0), hsl(0, 100%, 50%) or #FF0000).
+#' @examples
+#' # change to green when correct
+#' style_widgets(correct = "green")
+#'
+#' # yellow when unfilled, pink when correct
+#' style_widgets("#FFFF00", "#FF3399")
 #' @export
 style_widgets <- function(default = "blue", correct = "red") {
   paste0(
@@ -135,7 +153,9 @@ style_widgets <- function(default = "blue", correct = "red") {
 #' @details Implements rounding using the "round up from .5" rule, which is more conventional than the "round to even" rule implemented by R's built-in \code{\link{round}} function. This implementation was taken from \url{https://stackoverflow.com/a/12688836}.
 #' @examples
 #' round2(c(2, 2.5))
-#' # compare to: round(c(2, 2.5))
+#' 
+#' # compare to:
+#' round(c(2, 2.5))
 #' @export
 round2 <- function(x, digits = 0) {
   posneg = sign(x)

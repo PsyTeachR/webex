@@ -15,6 +15,13 @@ Create button revealing hidden content
 \details{
 Writes HTML to create a content that is revealed by a button press. Call this function inline in an RMarkdown document. Any content appearing after this call up to an inline call to \code{unhide()} will only be revealed when the user clicks the button. See the Web Exercises RMarkdown Template for examples.
 }
+\examples{
+# default behavior is to generate a button that says "Solution"
+hide()
+
+# or the button can display custom text
+hide("Click here for a hint")
+}
 \seealso{
 \code{unhide}
 }
