@@ -5,7 +5,7 @@
 The webex package
 =================
 
-<img src="https://github.com/PsyTeachR/misc/blob/master/img/webex.001.png" width="280px" />
+<img src="https://raw.githubusercontent.com/PsyTeachR/misc/master/img/webex.001.png"  width="280px" />
 
 The goal of webex is to enable instructors to easily create interactive web pages that students can use in self-guided learning. Although webex has fewer features than RStudio's [learnr](https://rstudio.github.io/learnr/) package, it is more lightweight: whereas learnr tutorials must be either hosted on a shiny server or run locally, webex creates standalone HTML files that require only a JavaScript-enabled browser. It is also extremely simple to use.
 
