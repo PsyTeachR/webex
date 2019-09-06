@@ -5,7 +5,7 @@
 The webex package
 =================
 
-<img src="https://raw.githubusercontent.com/PsyTeachR/misc/master/img/webex.001.png"  width="280px" />
+<img src="https://raw.githubusercontent.com/PsyTeachR/misc/master/img/webex.001.png"  style="width:280px; float: right;" />
 
 The goal of webex is to enable instructors to easily create interactive web pages that students can use in self-guided learning. Although webex has fewer features than RStudio's [learnr](https://rstudio.github.io/learnr/) package, it is more lightweight: whereas learnr tutorials must be either hosted on a shiny server or run locally, webex creates standalone HTML files that require only a JavaScript-enabled browser. It is also extremely simple to use.
 
@@ -35,6 +35,7 @@ The webex package provides functions that create HTML widgets using [inline R co
 | `mcq()`                 | pull-down menu | multiple choice question       |
 | `torf()`                | pull-down menu | TRUE or FALSE question         |
 | `hide()` and `unhide()` | button         | solution revealed when clicked |
+| `total_correct()`       | text           | updating total correct         |
 
 The appearance of the text box and pull-down menu widgets changes when users enter the correct answer. Answers can be either static or dynamic (i.e., specified using R code). Widget styles can be changed using `style_widgets()`.
 
