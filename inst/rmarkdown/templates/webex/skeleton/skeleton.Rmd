@@ -18,6 +18,12 @@ The webex package provides a number of functions that you use in [inline R code]
 
 **NOTE: To use the widgets in the compiled HTML file, you need to have a JavaScript-enabled browser. The widgets don't work in the built-in RStudio browser. In the built-in browser, click the "Open in Browser" button to open the file in your operating system's browser.**
 
+## Total Correct (`total_correct()`)
+
+The function `total_correct()` displays a running total of correct responses. Change the `elem` argument to display in a different style (e.g., `h2` or `h3` for header styles). If you're comfortable with css styles or classes, you can add them with the `args` argument. 
+
+`r total_correct(elem = "h3", args = "style='color:#003366;'")`
+
 ## Fill-In-The-Blanks (`fitb()`)
 
 Create fill-in-the-blank questions using `fitb()`, providing the answer as the first argument.

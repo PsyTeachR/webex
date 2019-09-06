@@ -137,13 +137,31 @@ unhide <- function() {
 #' # yellow when unfilled, pink when correct
 #' style_widgets("#FFFF00", "#FF3399")
 #' @export
-style_widgets <- function(default = "blue", correct = "red") {
+style_widgets <- function(default = "red", correct = "blue") {
   paste0(
     "\n<style>\n",
     "    .solveme { border-color: ", default,"; }\n",
     "    .solveme.correct { border-color: ", correct,"; }\n",
     "</style>\n\n"
   )
+}
+
+#' Display total correct
+#'
+#' @param elem The html element to display (e.g., div, h3, p, span)
+#' @param args Optional arguments for css classes or styles
+#'
+#' @return A string with the html for displaying a total correct element
+#' @export
+#'
+#' @examples
+#' total_correct()     # <div  id="total_correct"></div>
+#' total_correct("h3") # <h3  id="total_correct"></h3>
+#' total_correct("p", "style='color: red;'")
+#' total_correct("div", "class='customclass'")
+total_correct <- function(elem = "span", args = "") {
+  sprintf("<%s %s id=\"total_correct\"></%s>\n\n", 
+              elem, args, elem)
 }
 
 #' Round up from .5

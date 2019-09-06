@@ -4,7 +4,7 @@
 \alias{style_widgets}
 \title{Change webex widget style}
 \usage{
-style_widgets(default = "blue", correct = "red")
+style_widgets(default = "red", correct = "blue")
 }
 \arguments{
 \item{default}{The colour of the widgets when the correct answer is not filled in (defaults to blue).}
