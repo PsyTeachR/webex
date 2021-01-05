@@ -38,7 +38,7 @@ solveme_func = function(e) {
   }
 
   // match numeric answers within a specified tolerance
-  if(this.dataset.tol){
+  if(this.dataset.tol > 0){
     var tol = JSON.parse(this.dataset.tol);  
     var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
     if (matches.reduce((a, b) => a + b, 0) > 0) {
