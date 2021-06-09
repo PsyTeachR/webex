@@ -10,3 +10,4 @@
 ^pkgdown$
 ^CRAN-RELEASE$
 ^cran-comments\.md$
+^README\.html$
