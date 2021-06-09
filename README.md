@@ -38,7 +38,7 @@ code](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf).
 These functions are:
 
 | function                | widget         | description                    |
-|:------------------------|:---------------|:-------------------------------|
+| :---------------------- | :------------- | :----------------------------- |
 | `fitb()`                | text box       | fill-in-the-blank question     |
 | `mcq()`                 | pull-down menu | multiple choice question       |
 | `torf()`                | pull-down menu | TRUE or FALSE question         |
@@ -51,9 +51,9 @@ users enter the correct answer. Answers can be either static or dynamic
 `style_widgets()`.
 
 Examples are provided in the **Web Exercises** R Markdown template. To
-create a file from the webex template in RStudio, click
-`File -> New File... -> RMarkdown` and in the dialog box that appears,
-select `From Template` and choose `Web Exercises`.
+create a file from the webex template in RStudio, click `File -> New
+File... -> RMarkdown` and in the dialog box that appears, select `From
+Template` and choose `Web Exercises`.
 
 Alternatively (or if you’re not using RStudio) use:
 
@@ -62,11 +62,9 @@ rmarkdown::draft("exercises.Rmd", "webex", "webex")
 ```
 
 Knit the file to HTML to see how it works. **Note: The widgets only
-function in a JavaScript-enabled browser. The RStudio built-in browser
-does not have JavaScript. Click the “Open in Browser” button to use your
-operating system’s browser.**
+function in a JavaScript-enabled browser.**
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This
+<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This
 work is licensed under a
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
 Commons Attribution-ShareAlike 4.0 International License</a>.
