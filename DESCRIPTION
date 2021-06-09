@@ -1,6 +1,6 @@
 Package: webex
-Version: 0.9.1.9100
-Date: 2019-04-25
+Version: 0.9.1.9101
+Date: 2021-06-09
 Title: Create Interactive Web Exercises in 'R Markdown'
 Description: Functions for easily creating interactive web pages using
     'R Markdown' that students can use in self-guided learning.
@@ -16,7 +16,7 @@ Imports:
     knitr
 License: CC BY-SA 4.0
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 Suggests: 
     testthat
 Encoding: UTF-8

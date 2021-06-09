@@ -15,7 +15,7 @@ style_widgets(default = "red", correct = "blue")
 Change webex widget style
 }
 \details{
-Call this function inline in an RMarkdown document to change the default and correct colours using any valid HTML colour word (e.g., red, rgb(255,0,0), hsl(0, 100%, 50%) or #FF0000).
+Call this function inline in an RMarkdown document to change the default and correct colours using any valid CSS colour word (e.g., red, rgb(255,0,0), hsl(0, 100%, 50%) or #FF0000).
 }
 \examples{
 # change to green when correct

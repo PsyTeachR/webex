@@ -16,7 +16,7 @@ This is a Web Exercise template created by the [psychology teaching team at the 
 
 The webex package provides a number of functions that you use in [inline R code](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) to create HTML widgets (text boxes, pull down menus, buttons that reveal hidden content). Examples are given below. Knit this file to HTML to see how it works.
 
-**NOTE: To use the widgets in the compiled HTML file, you need to have a JavaScript-enabled browser. The widgets don't work in the built-in RStudio browser. In the built-in browser, click the "Open in Browser" button to open the file in your operating system's browser.**
+**NOTE: To use the widgets in the compiled HTML file, you need to have a JavaScript-enabled browser. The widgets may not work in the built-in RStudio browser. In the built-in browser, click the "Open in Browser" button to open the file in your operating system's browser.**
 
 ## Total Correct (`total_correct()`)
 
@@ -44,11 +44,15 @@ The blanks are case-sensitive; if you don't care about case, use the argument `i
 
 If you want to ignore differences in whitespace use, use the argument `ignore_ws = TRUE` (which is the default) and include spaces in your answer anywhere they could be acceptable.
 
-- How do you load the tidyverse package? `r fitb(c("library( tidyverse )", "library( \"tidyverse\" )", "library( 'tidyverse' )"), ignore_case = TRUE, width = "20", regex = TRUE)`
+- How do you load the tidyverse package? `r fitb(c("library( tidyverse )", "library( \"tidyverse\" )", "library( 'tidyverse' )"), ignore_ws = TRUE, width = "20")`
 
 You can set more than one possible correct answer by setting the answers as a vector.
 
 - Type a vowel: `r fitb(c("A", "E", "I", "O" , "U"), ignore_case = TRUE)`
+
+You can use regular expressions to test answers against more complex rules.
+
+- Type any 3 letters: `r fitb("^[a-zA-Z]{3}$", width = 3, regex = TRUE)`
 
 ## Multiple Choice (`mcq()`)
 

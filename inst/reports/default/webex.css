@@ -1,21 +1,21 @@
-/* styles for solveme */
-.solveme { border: 2px dotted red; }
-.solveme.correct { border: 2px solid blue; }
+/* styles for webex-solveme */
+.webex-solveme { border: 2px dotted red; }
+.webex-solveme.webex-correct { border: 2px solid blue; }
 /* styles for hidden solutions */
-.solution {
+.webex-solution {
     height: 2.5em;
     overflow-y: hidden;
     padding: 0.5em;
 }
-.solution.open {
+.webex-solution.open {
     height: auto;
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
-.solution button {
+.webex-solution button {
     height: 2em;
     margin-bottom: 0.5em;
 }
-.solution pre.sourceCode {
+.webex-solution pre.sourceCode {
     border-color: green;
 }
