@@ -16,7 +16,7 @@ This is a Web Exercise template created by the [psychology teaching team at the 
 
 The webex package provides a number of functions that you use in [inline R code](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) to create HTML widgets (text boxes, pull down menus, buttons that reveal hidden content). Examples are given below. Knit this file to HTML to see how it works.
 
-**NOTE: To use the widgets in the compiled HTML file, you need to have a JavaScript-enabled browser. The widgets may not work in the built-in RStudio browser. In the built-in browser, click the "Open in Browser" button to open the file in your operating system's browser.**
+**NOTE: To use the widgets in the compiled HTML file, you need to have a JavaScript-enabled browser.**
 
 ## Total Correct (`total_correct()`)
 
@@ -77,9 +77,13 @@ If the solution is an RMarkdown code chunk, instead of using `hide()` and `unhid
 with(cars, plot(speed, dist))
 ```
 
+
 `r hide("I need a hint")`
+
 See the documentation for `plot()` (`?plot`)
+
 `r unhide()`
+
 
 <!-- note: you could also just set webex.hide to TRUE -->
 

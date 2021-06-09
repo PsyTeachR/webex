@@ -1,13 +1,23 @@
 #' Create a fill-in-the-blank question
 #'
-#' @param answer The correct answer (can be a vector if there is more than one correct answer).
-#' @param width Width of the input box in characters. Defaults to the length of the longest answer.
-#' @param num Whether the input is numeric, in which case allow for leading zeroes to be omitted. Determined from the answer data type if not specified.
-#' @param tol The tolerance within which numeric answers will be accepted; i.e. if \code{abs(response - true.answer) < tol}, the answer is correct (implies \code{num=TRUE}).
+#' @param answer The correct answer (can be a vector if there is more
+#'   than one correct answer).
+#' @param width Width of the input box in characters. Defaults to the
+#'   length of the longest answer.
+#' @param num Whether the input is numeric, in which case allow for
+#'   leading zeroes to be omitted. Determined from the answer data
+#'   type if not specified.
+#' @param tol The tolerance within which numeric answers will be
+#'   accepted; i.e. if \code{abs(response - true.answer) < tol}, the
+#'   answer is correct (implies \code{num=TRUE}).
 #' @param ignore_case Whether to ignore case (capitalization).
 #' @param ignore_ws Whether to ignore whitespace.
-#' @param regex Whether to use regex to match answers (concatenates all answers with `|` before matching).
-#' @details Writes html code that creates an input box widget. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for examples of its use in RMarkdown.
+#' @param regex Whether to use regex to match answers (concatenates
+#'   all answers with `|` before matching).
+#' @details Writes html code that creates an input box widget. Call
+#'   this function inline in an RMarkdown document. See the Web
+#'   Exercises RMarkdown template for examples of its use in
+#'   RMarkdown.
 #' @examples
 #' # What is 2 + 2?
 #' fitb(4, num = TRUE)
@@ -61,8 +71,12 @@ fitb <- function(answer,
 
 #' Create a multiple-choice question
 #'
-#' @param opts Vector of alternatives. The correct answer is the element(s) of this vector named 'answer'. 
-#' @details Writes html code that creates an option box widget, with a single correct answer. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for further examples.
+#' @param opts Vector of alternatives. The correct answer is the
+#'   element(s) of this vector named 'answer'.
+#' @details Writes html code that creates an option box widget, with a
+#'   single correct answer. Call this function inline in an RMarkdown
+#'   document. See the Web Exercises RMarkdown template for further
+#'   examples.
 #' @examples
 #' # How many planets orbit closer to the sun than the Earth?
 #' mcq(c(1, answer = 2, 3))
@@ -77,9 +91,10 @@ mcq <- function(opts) {
   }
   answers <- jsonlite::toJSON(as.character(opts[ix]))
   answers <- gsub("\'", "&apos;", answers, fixed = TRUE)
-  
+
+  opts2 <- gsub("\'", "&apos;", opts, fixed = TRUE)
   options <- paste0(" <option>",
-                    paste(c("", opts), collapse = "</option> <option>"),
+                    paste(c("", opts2), collapse = "</option> <option>"),
                     "</option>")
   paste0("<select class='webex-solveme' data-answer='", answers, "'>",
          options, "</select>")
