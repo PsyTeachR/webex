@@ -23,9 +23,12 @@ add_webex_to_bookdown <- function(bookdown_dir = ".",
   incdir <- file.path(bookdown_dir, include_dir)
   dir.create(path = incdir, showWarnings = FALSE, recursive = TRUE)
   
+  rdir <- file.path(bookdown_dir, script_dir)
+  dir.create(path = rdir, showWarnings = FALSE, recursive = TRUE)
+  
   file.copy(css, incdir)
   file.copy(js, incdir)
-  file.copy(script, incdir)
+  file.copy(script, rdir)
   
   # update or create _output.yml
   output_file <- file.path(bookdown_dir, "_output.yml")
@@ -63,5 +66,5 @@ add_webex_to_bookdown <- function(bookdown_dir = ".",
   old_bcs <- yml$before_chapter_script
   yml$before_chapter_script <- union(old_bcs, file.path(script_dir, "webex.R"))
   yaml::write_yaml(yml, bookdown_file)
-  message(output_file, " updated")
+  message(bookdown_file, " updated")
 }

@@ -2,6 +2,7 @@ test_that("empty bookdown directory", {
   bookdown_dir <- tempfile()
   dir.create(bookdown_dir, FALSE)
   include_dir <- "include"
+  script_dir <- "R"
   output_format <- "bookdown::bs4_book"
   
   oyml <- file.path(bookdown_dir, "_output.yml")
@@ -23,6 +24,13 @@ test_that("empty bookdown directory", {
   expect_silent(check_byaml <- yaml::read_yaml(byml))
   expect_true("before_chapter_script" %in% names(check_byaml))
   expect_equal(check_byaml$before_chapter_script, "R/webex.R")
+  
+  css <- file.path(bookdown_dir, include_dir, "webex.css")
+  js <- file.path(bookdown_dir, include_dir, "webex.js")
+  r <- file.path(bookdown_dir, script_dir, "webex.R")
+  expect_true(file.exists(css))
+  expect_true(file.exists(js))
+  expect_true(file.exists(r))
 })
 
 test_that("empty bookdown_dir, include_dir", {
