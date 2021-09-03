@@ -30,22 +30,27 @@ solveme_func = function(e) {
   if (cl.contains("nospaces")) {
     my_answer = my_answer.replace(/ /g, "")
   }
-  
-  if (my_answer !== "" & real_answers.includes(my_answer)) {
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
     cl.add("webex-correct");
+    cl.remove("webex-incorrect");
   } else {
+    cl.add("webex-incorrect");
     cl.remove("webex-correct");
   }
 
   // match numeric answers within a specified tolerance
   if(this.dataset.tol > 0){
-    var tol = JSON.parse(this.dataset.tol);  
+    var tol = JSON.parse(this.dataset.tol);
     var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
     if (matches.reduce((a, b) => a + b, 0) > 0) {
       cl.add("webex-correct");
     } else {
       cl.remove("webex-correct");
-    }  
+    }
   }
 
   // added regex bit
@@ -53,9 +58,9 @@ solveme_func = function(e) {
     answer_regex = RegExp(real_answers.join("|"))
     if (answer_regex.test(my_answer)) {
       cl.add("webex-correct");
-    }  
+    }
   }
-  
+
   update_total_correct();
 }
 
@@ -68,7 +73,7 @@ window.onload = function() {
       buttons[i].onclick = b_func;
     }
   }
-  
+
   /* set up webex-solveme inputs */
   var solveme = document.getElementsByClassName("webex-solveme");
 
@@ -76,10 +81,10 @@ window.onload = function() {
     /* make sure input boxes don't auto-anything */
     solveme[i].setAttribute("autocomplete","off");
     solveme[i].setAttribute("autocorrect", "off");
-    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("autocapitalize", "off");
     solveme[i].setAttribute("spellcheck", "false");
     solveme[i].value = "";
-    
+
     /* adjust answer for ignorecase or nospaces */
     var cl = solveme[i].classList;
     var real_answer = solveme[i].dataset.answer;
@@ -90,12 +95,12 @@ window.onload = function() {
       real_answer = real_answer.replace(/ /g, "");
     }
     solveme[i].dataset.answer = real_answer;
-    
+
     /* attach checking function */
     solveme[i].onkeyup = solveme_func;
     solveme[i].onchange = solveme_func;
   }
-  
+
   update_total_correct();
 }
 
