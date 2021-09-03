@@ -120,6 +120,43 @@ torf <- function(answer) {
   mcq(opts)
 }
 
+
+#' Longer MCQs with Radio Buttons
+#'
+#' @param opts Vector of alternatives. The correct answer is the
+#'   element(s) of this vector named 'answer'.
+#' @details Writes html code that creates a radio button widget, with a
+#'   single correct answer. This is more suitable for longer answers. Call this function inline in an RMarkdown
+#'   document. See the Web Exercises RMarkdown template for further
+#'   examples.
+#' @examples
+#' # What is a p-value?
+#' opts <- c(
+#'   "the probability that the null hypothesis is true",
+#'   answer = "the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true",
+#'   "the probability of making an error in your conclusion"
+#' )
+#' longmcq(opts)
+#'
+#' @export
+longmcq <- function(opts) {
+  ix <- which(names(opts) == "answer")
+  if (length(ix) == 0) {
+    stop("The question has no correct answer")
+  }
+
+  opts2 <- gsub("\'", "&apos;", opts, fixed = TRUE)
+  
+  # make up a name to group them
+  qname <- paste0("radio_", paste(sample(LETTERS, 10, T), collapse = ""))
+  options <- sprintf('<label><input type="radio" autocomplete="off" name="%s" value="%s"></input> <span>%s</span></label>', qname, names(opts), opts2)
+  
+  paste0("<div class='webex-radiogroup' id='", qname, "'>", 
+         paste(options, collapse = ""), 
+         "</div>\n")
+}
+
+
 #' Create button revealing hidden content
 #'
 #' @param button_text Text to appear on the button that reveals the hidden content.

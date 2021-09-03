@@ -45,6 +45,7 @@ The webex package provides functions that create HTML widgets using [inline R co
 | `fitb()`                | text box       | fill-in-the-blank question     |
 | `mcq()`                 | pull-down menu | multiple choice question       |
 | `torf()`                | pull-down menu | TRUE or FALSE question         |
+| `longmcq()`             | radio buttons  | MCQs with long answers         |
 | `hide()` and `unhide()` | button         | solution revealed when clicked |
 | `total_correct()`       | text           | updating total correct         |
 

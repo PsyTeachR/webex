@@ -8,11 +8,13 @@
 }
 
 /* styles for webex-solveme */
-.webex-solveme.webex-incorrect {
+.webex-solveme.webex-incorrect,
+.webex-radiogroup .webex-incorrect {
     border: 2px dotted var(--pink);
     background-color: #edaddd;
 }
-.webex-solveme.webex-correct {
+.webex-solveme.webex-correct,
+.webex-radiogroup .webex-correct {
     border: 2px solid var(--green);
     background-color: #c0edc2;
 }
@@ -38,4 +40,14 @@
 }
 .webex-solution pre.sourceCode {
     border-color: var(--green);
+}
+
+.webex-radiogroup {
+  margin-left: 2em;
+}
+
+.webex-radiogroup label {
+  font-weight: 400;
+  display: block;
+  border: 2px solid rgba(255, 255, 255, 0);
 }

@@ -38,10 +38,11 @@ code](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf).
 These functions are:
 
 | function                | widget         | description                    |
-| :---------------------- | :------------- | :----------------------------- |
+|:------------------------|:---------------|:-------------------------------|
 | `fitb()`                | text box       | fill-in-the-blank question     |
 | `mcq()`                 | pull-down menu | multiple choice question       |
 | `torf()`                | pull-down menu | TRUE or FALSE question         |
+| `longmcq()`             | radio buttons  | MCQs with long answers         |
 | `hide()` and `unhide()` | button         | solution revealed when clicked |
 | `total_correct()`       | text           | updating total correct         |
 
@@ -51,9 +52,9 @@ users enter the correct answer. Answers can be either static or dynamic
 `style_widgets()`.
 
 Examples are provided in the **Web Exercises** R Markdown template. To
-create a file from the webex template in RStudio, click `File -> New
-File... -> RMarkdown` and in the dialog box that appears, select `From
-Template` and choose `Web Exercises`.
+create a file from the webex template in RStudio, click
+`File -> New File... -> RMarkdown` and in the dialog box that appears,
+select `From Template` and choose `Web Exercises`.
 
 Alternatively (or if you’re not using RStudio) use:
 
