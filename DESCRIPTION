@@ -16,7 +16,8 @@ Depends: R (>= 3.1.2)
 Imports:
     jsonlite,
     rmarkdown,
-    knitr
+    knitr,
+    yaml
 License: CC BY-SA 4.0
 RoxygenNote: 7.1.1
 Suggests: 
