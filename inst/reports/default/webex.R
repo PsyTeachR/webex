@@ -1,3 +1,7 @@
+suppressPackageStartupMessages({
+  library(webex)
+})
+
 knitr::knit_hooks$set(webex.hide = function(before, options, envir) {
   if (before) {
     if (is.character(options$webex.hide)) {
