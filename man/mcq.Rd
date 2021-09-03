@@ -7,13 +7,17 @@
 mcq(opts)
 }
 \arguments{
-\item{opts}{Vector of alternatives. The correct answer is the element(s) of this vector named 'answer'.}
+\item{opts}{Vector of alternatives. The correct answer is the
+element(s) of this vector named 'answer'.}
 }
 \description{
 Create a multiple-choice question
 }
 \details{
-Writes html code that creates an option box widget, with a single correct answer. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for further examples.
+Writes html code that creates an option box widget, with a
+  single correct answer. Call this function inline in an RMarkdown
+  document. See the Web Exercises RMarkdown template for further
+  examples.
 }
 \examples{
 # How many planets orbit closer to the sun than the Earth?
