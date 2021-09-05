@@ -8,15 +8,15 @@
 }
 
 /* styles for webex-solveme */
-.webex-solveme.webex-incorrect,
-.webex-radiogroup .webex-incorrect {
+.webex-incorrect {
     border: 2px dotted var(--pink);
     background-color: #edaddd;
+    border-radius: 0.25em;
 }
-.webex-solveme.webex-correct,
-.webex-radiogroup .webex-correct {
+.webex-correct {
     border: 2px solid var(--green);
     background-color: #c0edc2;
+    border-radius: 0.25em;
 }
 /* styles for hidden solutions */
 .webex-solution {
@@ -42,12 +42,17 @@
     border-color: var(--green);
 }
 
-.webex-radiogroup {
-  margin-left: 2em;
-}
-
 .webex-radiogroup label {
+  margin-left: 2em;
+  text-indent: -1em;
+  padding-left: 1em;
   font-weight: 400;
   display: block;
-  border: 2px solid rgba(255, 255, 255, 0);
+  border: 2px solid rgba(255, 255, 255, 1);
+  border-radius: 0.25em;
+}
+
+.webex-radiogroup label input {
+  position: relative;
+  left: -1em;
 }
