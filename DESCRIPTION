@@ -22,5 +22,7 @@ Imports:
 License: CC BY-SA 4.0
 RoxygenNote: 7.1.1
 Suggests: 
-    testthat
+    testthat,
+    bookdown,
+    xfun
 Encoding: UTF-8

@@ -1,4 +1,6 @@
 test_that("empty bookdown directory", {
+  skip_on_cran() # not all CRAN installations have pandoc
+  
   bookdown_dir <- tempfile()
   dir.create(bookdown_dir, FALSE)
   include_dir <- "include"
@@ -14,7 +16,6 @@ test_that("empty bookdown directory", {
   expect_silent(check_oyaml <- yaml::read_yaml(oyml))
   
   expect_equal(names(check_oyaml), output_format)
-  expect_equal(names(check_oyaml[[output_format]]), c("css", "includes", "md_extensions"))
   
   expect_equal(check_oyaml[[output_format]]$css, "include/webex.css")
   expect_equal(check_oyaml[[output_format]]$includes$after_body, "include/webex.js")
@@ -34,6 +35,8 @@ test_that("empty bookdown directory", {
 })
 
 test_that("empty bookdown_dir, include_dir", {
+  skip_on_cran() # not all CRAN installations have pandoc
+  
   tdir <- tempfile()
   dir.create(tdir, FALSE)
   oldwd <- getwd()
@@ -53,7 +56,6 @@ test_that("empty bookdown_dir, include_dir", {
   expect_silent(check_yaml <- yaml::read_yaml(yml))
   
   expect_equal(names(check_yaml), output_format)
-  expect_equal(names(check_yaml[[output_format]]), c("css", "includes", "md_extensions"))
   
   expect_equal(check_yaml[[output_format]]$css, "./webex.css")
   expect_equal(check_yaml[[output_format]]$includes$after_body, "./webex.js")
@@ -66,7 +68,7 @@ test_that("empty bookdown_dir, include_dir", {
   
   # new output
   output_format2 <- "bookdown::html_book"
-  expect_message(add_webex_to_bookdown(bookdown_dir, include_dir, script_dir, output_format2), "updated")
+  expect_message(add_webex_to_bookdown(bookdown_dir, include_dir, script_dir, "html_book"), "updated")
   expect_true(file.exists(yml))
   expect_silent(check_yaml <- yaml::read_yaml(yml))
   
@@ -82,6 +84,8 @@ test_that("empty bookdown_dir, include_dir", {
 })
 
 test_that("preexisting _output.yml", {
+  skip_on_cran() # not all CRAN installations have pandoc
+  
   tdir <- tempfile()
   dir.create(tdir, FALSE)
   oldwd <- getwd()
@@ -133,4 +137,34 @@ clean: []
   expect_silent(check_byaml <- yaml::read_yaml(byml))
   expect_true("before_chapter_script" %in% names(check_byaml))
   expect_equal(check_byaml$before_chapter_script, c("R/psyteachr_setup.R", "R/webex.R"))
+})
+
+test_that("new books", {
+  skip_on_cran() # not all CRAN installations have pandoc
+  
+  tdir <- tempfile()
+  dir.create(tdir, FALSE)
+  oldwd <- getwd()
+  on.exit(setwd(oldwd))
+  setwd(tdir)
+  
+  render = interactive()
+  
+  # needs visual inspection to check sites
+  add_webex_to_bookdown(bookdown_dir = "demo_bs4",
+                        output_format = "bs4_book",
+                        render = render)
+  
+  add_webex_to_bookdown(bookdown_dir = "demo_git",
+                        output_format = "gitbook",
+                        render = render)
+  
+  add_webex_to_bookdown(bookdown_dir = "demo_html",
+                        output_format = "html_book",
+                        render = render)
+  
+  add_webex_to_bookdown(bookdown_dir = "demo_tufte",
+                        output_format = "tufte_html_book",
+                        render = render)
+  
 })

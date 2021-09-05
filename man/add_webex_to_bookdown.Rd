@@ -8,7 +8,8 @@ add_webex_to_bookdown(
   bookdown_dir = ".",
   include_dir = "include",
   script_dir = "R",
-  output_format = "bookdown::bs4_book"
+  output_format = c("bs4_book", "gitbook", "html_book", "tufte_html_book"),
+  render = FALSE
 )
 }
 \arguments{
@@ -18,8 +19,10 @@ add_webex_to_bookdown(
 
 \item{script_dir}{The directory where you want to put the .R script (defaults to "R")}
 
-\item{output_format}{The bookdown format you want to add webex to (defaults to "bookdown::bs4_book") This is typically your default HTML format in the _output.yml file}
+\item{output_format}{The bookdown format you want to add webex to (defaults to "bs4_book") This is typically your default HTML format in the _output.yml file}
+
+\item{render}{Whether to render the book after updating (defaults to FALSE)}
 }
 \description{
-Add webex to bookdown
+Adds the necessary helper files to an existing bookdown project and edits the _output.yml and _bookdown.yml files accordingly. If the directory does not have a bookdown project in it, a template project will be set up.
 }

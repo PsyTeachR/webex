@@ -1,0 +1,144 @@
+--- 
+title: "My Book"
+author: "Me"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: packages.bib
+link-citations: yes
+description: |
+  This book ...
+---
+
+```{r cite-packages, include = FALSE}
+# automatically create a bib database for R packages
+# add any packages you want to cite here
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'webex'
+), 'packages.bib')
+
+```
+
+# Webex {-}
+
+This is a Web Exercise template created by the [psychology teaching team at the University of Glasgow](http://www.psy.gla.ac.uk), based on ideas from [Software Carpentry](https://software-carpentry.org/lessons/). This template shows how instructors can easily create lightweight, interactive web documents that students can use in self-guided learning.
+
+The webex package provides a number of functions that you use in [inline R code](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) to create HTML widgets (text boxes, pull down menus, buttons that reveal hidden content). Examples are given next. Render the book to see how they work.
+
+**NOTE: To use the widgets in the compiled HTML files, you need to have a JavaScript-enabled browser.**
+
+## Example Questions
+
+### Total Correct (`total_correct()`)
+
+The function `total_correct()` displays a running total of correct responses. Change the `elem` argument to display in a different style (e.g., `h2` or `h3` for header styles). If you're comfortable with css styles or classes, you can add them with the `args` argument. 
+
+`r total_correct(elem = "h3", args = "style='color:#003366;'")`
+
+### Fill-In-The-Blanks (`fitb()`)
+
+Create fill-in-the-blank questions using `fitb()`, providing the answer as the first argument.
+
+- 2 + 2 is `r fitb("4")`
+
+You can also create these questions dynamically, using variables from your R session.
+
+```{r echo = FALSE}
+x <- sample(2:8, 1)
+```
+
+- The square root of `r x^2` is: `r fitb(x)`
+
+The blanks are case-sensitive; if you don't care about case, use the argument `ignore_case = TRUE`.
+
+- What is the letter after D? `r fitb("E", ignore_case = TRUE)`
+
+If you want to ignore differences in whitespace use, use the argument `ignore_ws = TRUE` (which is the default) and include spaces in your answer anywhere they could be acceptable.
+
+- How do you load the tidyverse package? `r fitb(c("library( tidyverse )", "library( \"tidyverse\" )", "library( 'tidyverse' )"), ignore_ws = TRUE, width = "20")`
+
+You can set more than one possible correct answer by setting the answers as a vector.
+
+- Type a vowel: `r fitb(c("A", "E", "I", "O" , "U"), ignore_case = TRUE)`
+
+You can use regular expressions to test answers against more complex rules.
+
+- Type any 3 letters: `r fitb("^[a-zA-Z]{3}$", width = 3, regex = TRUE)`
+
+### Multiple Choice (`mcq()`)
+
+- "Never gonna give you up, never gonna: `r mcq(c("let you go", "turn you down", "run away", answer = "let you down"))`"
+- "I `r mcq(c(answer = "bless the rains", "guess it rains", "sense the rain"))` down in Africa" -Toto
+
+### True or False (`torf()`)
+
+- True or False? You can permute values in a vector using `sample()`. `r torf(TRUE)`
+
+### Longer MCQs (`longmcq()`)
+
+When your answers are very long, sometimes a drop-down select box gets formatted oddly. You can use `longmcq()` to deal with this. Since the answers are long, It's probably best to set up the options inside an R chunk with `echo=FALSE`. 
+
+**What is a p-value?**
+
+```{r, echo = FALSE}
+opts_p <- c(
+   "the probability that the null hypothesis is true",
+   answer = "the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true",
+   "the probability of making an error in your conclusion"
+)
+```
+
+`r longmcq(opts_p)`
+
+**What is true about a 95% confidence interval of the mean?**
+
+```{r, echo = FALSE}
+# use sample() to randomise the order
+opts_ci <- sample(c(
+  answer = "if you repeated the process many times, 95% of intervals calculated in this way contain the true mean",
+  "there is a 95% probability that the true mean lies within this range",
+  "95% of the data fall within this range"
+))
+```
+
+`r longmcq(opts_ci)`
+
+
+## Hidden solutions and hints
+
+You can fence off a solution area that will be hidden behind a button using `hide()` before the solution and `unhide()` after, each as inline R code.  Pass the text you want to appear on the button to the `hide()` function.
+
+If the solution is an RMarkdown code chunk, instead of using `hide()` and `unhide()`, simply set the `webex.hide` chunk option to TRUE, or set it to the string you wish to display on the button.
+
+#### Example problem
+
+**Recreate the scatterplot below, using the built-in `cars` dataset.**
+
+```{r echo = FALSE}
+with(cars, plot(speed, dist))
+```
+
+
+`r hide("I need a hint")`
+
+See the documentation for `plot()` (`?plot`)
+
+`r unhide()`
+
+
+<!-- note: you could also just set webex.hide to TRUE -->
+
+```{r eval = FALSE, webex.hide="Click here to see the solution"}
+plot(cars$speed, cars$dist)
+```
+
+<!-- TO CHANGE WIDGET COLOURS:
+  move command below out of this HTML comment area
+  and then re-compile;
+  unfilled becomes yellow, correct becomes pink 
+     
+`r style_widgets("#FFFF00", "#FF3399")`
+-->
+
+
+
