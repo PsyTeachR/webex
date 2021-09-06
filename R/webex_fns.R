@@ -73,10 +73,9 @@ fitb <- function(answer,
 #'
 #' @param opts Vector of alternatives. The correct answer is the
 #'   element(s) of this vector named 'answer'.
-#' @details Writes html code that creates an option box widget, with a
-#'   single correct answer. Call this function inline in an RMarkdown
-#'   document. See the Web Exercises RMarkdown template for further
-#'   examples.
+#' @details Writes html code that creates an option box widget, with one or 
+#'   more correct answers. Call this function inline in an RMarkdown document. 
+#'   See the Web Exercises RMarkdown template for further examples.
 #' @examples
 #' # How many planets orbit closer to the sun than the Earth?
 #' mcq(c(1, answer = 2, 3))
@@ -89,15 +88,10 @@ mcq <- function(opts) {
   if (length(ix) == 0) {
     stop("MCQ has no correct answer")
   }
-  answers <- jsonlite::toJSON(as.character(opts[ix]))
-  answers <- gsub("\'", "&apos;", answers, fixed = TRUE)
-
-  opts2 <- gsub("\'", "&apos;", opts, fixed = TRUE)
-  options <- paste0(" <option>",
-                    paste(c("", opts2), collapse = "</option> <option>"),
-                    "</option>")
-  paste0("<select class='webex-solveme' data-answer='", answers, "'>",
-         options, "</select>")
+  
+  options <- sprintf("<option value='%s'>%s</option>", names(opts), opts) 
+  sprintf("<select class='webex-select'><option value='blank'></option>%s</select>", 
+          paste(options, collapse = ""))
 }
 
 #' Create a true-or-false question
@@ -119,6 +113,43 @@ torf <- function(answer) {
     names(opts) <- c("", "answer")
   mcq(opts)
 }
+
+
+#' Longer MCQs with Radio Buttons
+#'
+#' @param opts Vector of alternatives. The correct answer is the
+#'   element(s) of this vector named 'answer'.
+#' @details Writes html code that creates a radio button widget, with a
+#'   single correct answer. This is more suitable for longer answers. Call this function inline in an RMarkdown
+#'   document. See the Web Exercises RMarkdown template for further
+#'   examples.
+#' @examples
+#' # What is a p-value?
+#' opts <- c(
+#'   "the probability that the null hypothesis is true",
+#'   answer = "the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true",
+#'   "the probability of making an error in your conclusion"
+#' )
+#' longmcq(opts)
+#'
+#' @export
+longmcq <- function(opts) {
+  ix <- which(names(opts) == "answer")
+  if (length(ix) == 0) {
+    stop("The question has no correct answer")
+  }
+
+  opts2 <- gsub("\'", "&apos;", opts, fixed = TRUE)
+  
+  # make up a name to group them
+  qname <- paste0("radio_", paste(sample(LETTERS, 10, T), collapse = ""))
+  options <- sprintf('<label><input type="radio" autocomplete="off" name="%s" value="%s"></input> <span>%s</span></label>', qname, names(opts), opts2)
+  
+  paste0("<div class='webex-radiogroup' id='", qname, "'>", 
+         paste(options, collapse = ""), 
+         "</div>\n")
+}
+
 
 #' Create button revealing hidden content
 #'

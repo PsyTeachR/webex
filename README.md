@@ -38,10 +38,11 @@ code](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf).
 These functions are:
 
 | function                | widget         | description                    |
-| :---------------------- | :------------- | :----------------------------- |
+|:------------------------|:---------------|:-------------------------------|
 | `fitb()`                | text box       | fill-in-the-blank question     |
 | `mcq()`                 | pull-down menu | multiple choice question       |
 | `torf()`                | pull-down menu | TRUE or FALSE question         |
+| `longmcq()`             | radio buttons  | MCQs with long answers         |
 | `hide()` and `unhide()` | button         | solution revealed when clicked |
 | `total_correct()`       | text           | updating total correct         |
 
@@ -51,9 +52,9 @@ users enter the correct answer. Answers can be either static or dynamic
 `style_widgets()`.
 
 Examples are provided in the **Web Exercises** R Markdown template. To
-create a file from the webex template in RStudio, click `File -> New
-File... -> RMarkdown` and in the dialog box that appears, select `From
-Template` and choose `Web Exercises`.
+create a file from the webex template in RStudio, click
+`File -> New File... -> RMarkdown` and in the dialog box that appears,
+select `From Template` and choose `Web Exercises`.
 
 Alternatively (or if you’re not using RStudio) use:
 
@@ -63,6 +64,37 @@ rmarkdown::draft("exercises.Rmd", "webex", "webex")
 
 Knit the file to HTML to see how it works. **Note: The widgets only
 function in a JavaScript-enabled browser.**
+
+## Bookdown
+
+You can add webex to a bookdown project or start a new bookdown project
+with webex using `add_webex_to_bookdown()`.
+
+``` r
+# create a new book
+# use default includes and scripts directories (include and R)
+add_webex_to_bookdown(bookdown_dir = "demo_bs4",
+                      output_format = "bs4_book",
+                      render = TRUE)
+
+add_webex_to_bookdown(bookdown_dir = "demo_git",
+                      output_format = "gitbook",
+                      render = TRUE)
+
+add_webex_to_bookdown(bookdown_dir = "demo_html",
+                      output_format = "html_book",
+                      render = TRUE)
+
+add_webex_to_bookdown(bookdown_dir = "demo_tufte",
+                      output_format = "tufte_html_book",
+                      render = TRUE)
+
+# update an existing book with custom include and script directories
+add_webex_to_bookdown(bookdown_dir = ".",
+                      include_dir = "www",
+                      script_dir = "scripts",
+                      output_format = "gitbook")
+```
 
 <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This
 work is licensed under a

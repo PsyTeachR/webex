@@ -1,3 +1,10 @@
+# webex 0.9.3
+
+* updated method to remove smart quotes when rmarkdown >= 2.2
+* new styles for correct and incorrect answers
+* `longmcq()` function for MCQs with long answers (creates a radiobutton interface)
+* `add_webex_to_bookdown()` new function
+
 # webex 0.9.2
 
 ## Bug fixes

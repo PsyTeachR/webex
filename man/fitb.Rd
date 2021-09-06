@@ -15,25 +15,35 @@ fitb(
 )
 }
 \arguments{
-\item{answer}{The correct answer (can be a vector if there is more than one correct answer).}
+\item{answer}{The correct answer (can be a vector if there is more
+than one correct answer).}
 
-\item{width}{Width of the input box in characters. Defaults to the length of the longest answer.}
+\item{width}{Width of the input box in characters. Defaults to the
+length of the longest answer.}
 
-\item{num}{Whether the input is numeric, in which case allow for leading zeroes to be omitted. Determined from the answer data type if not specified.}
+\item{num}{Whether the input is numeric, in which case allow for
+leading zeroes to be omitted. Determined from the answer data
+type if not specified.}
 
 \item{ignore_case}{Whether to ignore case (capitalization).}
 
-\item{tol}{The tolerance within which numeric answers will be accepted; i.e. if \code{abs(response - true.answer) < tol}, the answer is correct (implies \code{num=TRUE}).}
+\item{tol}{The tolerance within which numeric answers will be
+accepted; i.e. if \code{abs(response - true.answer) < tol}, the
+answer is correct (implies \code{num=TRUE}).}
 
 \item{ignore_ws}{Whether to ignore whitespace.}
 
-\item{regex}{Whether to use regex to match answers (concatenates all answers with `|` before matching).}
+\item{regex}{Whether to use regex to match answers (concatenates
+all answers with `|` before matching).}
 }
 \description{
 Create a fill-in-the-blank question
 }
 \details{
-Writes html code that creates an input box widget. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for examples of its use in RMarkdown.
+Writes html code that creates an input box widget. Call
+  this function inline in an RMarkdown document. See the Web
+  Exercises RMarkdown template for examples of its use in
+  RMarkdown.
 }
 \examples{
 # What is 2 + 2?

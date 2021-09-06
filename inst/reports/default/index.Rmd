@@ -1,30 +1,41 @@
----
-title: "Web Exercises"
-output: webex::webex_default
+--- 
+title: "My Book"
+author: "Me"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: packages.bib
+link-citations: yes
+description: |
+  This book ...
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-if (!requireNamespace("webex")) {
-  stop("You must have the 'webex' package installed to knit HTML from this template.\n   devtools::install_github(\"psyteachr/webex\")")
-} else {
-  library("webex")
-}
+```{r cite-packages, include = FALSE}
+# automatically create a bib database for R packages
+# add any packages you want to cite here
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'webex'
+), 'packages.bib')
+
 ```
 
-This is a Web Exercise template created by the [psychology teaching team at the University of Glasgow](http://www.psy.gla.ac.uk), based on ideas from [Software Carpentry](https://software-carpentry.org/lessons/). This template shows how instructors can easily create interactive web documents that students can use in self-guided learning.
+# Webex {-}
 
-The webex package provides a number of functions that you use in [inline R code](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) to create HTML widgets (text boxes, pull down menus, buttons that reveal hidden content). Examples are given below. Knit this file to HTML to see how it works.
+This is a Web Exercise template created by the [psychology teaching team at the University of Glasgow](http://www.psy.gla.ac.uk), based on ideas from [Software Carpentry](https://software-carpentry.org/lessons/). This template shows how instructors can easily create lightweight, interactive web documents that students can use in self-guided learning.
 
-**NOTE: To use the widgets in the compiled HTML file, you need to have a JavaScript-enabled browser.**
+The webex package provides a number of functions that you use in [inline R code](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) to create HTML widgets (text boxes, pull down menus, buttons that reveal hidden content). Examples are given next. Render the book to see how they work.
 
-## Total Correct (`total_correct()`)
+**NOTE: To use the widgets in the compiled HTML files, you need to have a JavaScript-enabled browser.**
+
+## Example Questions
+
+### Total Correct (`total_correct()`)
 
 The function `total_correct()` displays a running total of correct responses. Change the `elem` argument to display in a different style (e.g., `h2` or `h3` for header styles). If you're comfortable with css styles or classes, you can add them with the `args` argument. 
 
 `r total_correct(elem = "h3", args = "style='color:#003366;'")`
 
-## Fill-In-The-Blanks (`fitb()`)
+### Fill-In-The-Blanks (`fitb()`)
 
 Create fill-in-the-blank questions using `fitb()`, providing the answer as the first argument.
 
@@ -54,16 +65,16 @@ You can use regular expressions to test answers against more complex rules.
 
 - Type any 3 letters: `r fitb("^[a-zA-Z]{3}$", width = 3, regex = TRUE)`
 
-## Multiple Choice (`mcq()`)
+### Multiple Choice (`mcq()`)
 
 - "Never gonna give you up, never gonna: `r mcq(c("let you go", "turn you down", "run away", answer = "let you down"))`"
 - "I `r mcq(c(answer = "bless the rains", "guess it rains", "sense the rain"))` down in Africa" -Toto
 
-## True or False (`torf()`)
+### True or False (`torf()`)
 
 - True or False? You can permute values in a vector using `sample()`. `r torf(TRUE)`
 
-## Longer MCQs (`longmcq()`)
+### Longer MCQs (`longmcq()`)
 
 When your answers are very long, sometimes a drop-down select box gets formatted oddly. You can use `longmcq()` to deal with this. Since the answers are long, It's probably best to set up the options inside an R chunk with `echo=FALSE`. 
 
@@ -99,7 +110,7 @@ You can fence off a solution area that will be hidden behind a button using `hid
 
 If the solution is an RMarkdown code chunk, instead of using `hide()` and `unhide()`, simply set the `webex.hide` chunk option to TRUE, or set it to the string you wish to display on the button.
 
-### Example problem
+#### Example problem
 
 **Recreate the scatterplot below, using the built-in `cars` dataset.**
 
@@ -128,3 +139,6 @@ plot(cars$speed, cars$dist)
      
 `r style_widgets("#FFFF00", "#FF3399")`
 -->
+
+
+

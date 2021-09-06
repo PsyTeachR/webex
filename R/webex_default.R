@@ -35,8 +35,17 @@ webex_default <- function(...) {
     }
   })
   
-  rmarkdown::html_document(css = css,
-                           includes = rmarkdown::includes(after_body = js), 
-                           smart = FALSE,
-                           ...)
+  # smart quotes changed in rmarkdown 2.2
+  rmd_version <- unlist(utils::packageVersion("rmarkdown"))
+  if (rmd_version[1] < 2 || (rmd_version[1] == 2 && rmd_version[2] < 2)) {
+    rmarkdown::html_document(css = css,
+                             includes = rmarkdown::includes(after_body = js), 
+                             smart = FALSE,
+                             ...)
+  } else {
+    rmarkdown::html_document(css = css,
+                             includes = rmarkdown::includes(after_body = js), 
+                             md_extensions = "-smart",
+                             ...)
+  }
 }
