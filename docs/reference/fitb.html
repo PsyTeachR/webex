@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a fill-in-the-blank question — fitb • webex</title>
+<title>Create a fill-in-the-blank question — fitb • webexercises</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,8 +48,8 @@
 
 <meta property="og:title" content="Create a fill-in-the-blank question — fitb" />
 <meta property="og:description" content="Create a fill-in-the-blank question" />
-<meta property="og:image" content="https://psyteachr.github.io/webex/reference/figures/card.png" />
-<meta property="og:image:alt" content="Hexagon with the word webex" />
+<meta property="og:image" content="https://psyteachr.github.io/webexercises/reference/figures/card.png" />
+<meta property="og:image:alt" content="Hexagon with the word webexercises" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@dalejbarr" />
 <meta name="twitter:site" content="@psyteachr" />
@@ -83,8 +83,8 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">webex</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.1.9101</span>
+        <a class="navbar-link" href="../index.html">webexercises</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -105,7 +105,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/psyteachr/webex/">
+  <a href="https://github.com/psyteachr/webexercises/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -124,7 +124,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Create a fill-in-the-blank question</h1>
-    <small class="dont-index">Source: <a href='https://github.com/psyteachr/webex/blob/master/R/webex_fns.R'><code>R/webex_fns.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/psyteachr/webexercises/blob/master/R/webex_fns.R'><code>R/webex_fns.R</code></a></small>
     <div class="hidden name"><code>fitb.Rd</code></div>
     </div>
 
@@ -147,15 +147,19 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>answer</th>
-      <td><p>The correct answer (can be a vector if there is more than one correct answer).</p></td>
+      <td><p>The correct answer (can be a vector if there is more
+than one correct answer).</p></td>
     </tr>
     <tr>
       <th>width</th>
-      <td><p>Width of the input box in characters. Defaults to the length of the longest answer.</p></td>
+      <td><p>Width of the input box in characters. Defaults to the
+length of the longest answer.</p></td>
     </tr>
     <tr>
       <th>num</th>
-      <td><p>Whether the input is numeric, in which case allow for leading zeroes to be omitted. Determined from the answer data type if not specified.</p></td>
+      <td><p>Whether the input is numeric, in which case allow for
+leading zeroes to be omitted. Determined from the answer data
+type if not specified.</p></td>
     </tr>
     <tr>
       <th>ignore_case</th>
@@ -163,7 +167,9 @@
     </tr>
     <tr>
       <th>tol</th>
-      <td><p>The tolerance within which numeric answers will be accepted; i.e. if <code>abs(response - true.answer) &lt; tol</code>, the answer is correct (implies <code>num=TRUE</code>).</p></td>
+      <td><p>The tolerance within which numeric answers will be
+accepted; i.e. if <code>abs(response - true.answer) &lt; tol</code>, the
+answer is correct (implies <code>num=TRUE</code>).</p></td>
     </tr>
     <tr>
       <th>ignore_ws</th>
@@ -171,13 +177,17 @@
     </tr>
     <tr>
       <th>regex</th>
-      <td><p>Whether to use regex to match answers (concatenates all answers with `|` before matching).</p></td>
+      <td><p>Whether to use regex to match answers (concatenates
+all answers with `|` before matching).</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Writes html code that creates an input box widget. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for examples of its use in RMarkdown.</p>
+    <p>Writes html code that creates an input box widget. Call
+  this function inline in an RMarkdown document. See the Web
+  Exercises RMarkdown template for examples of its use in
+  RMarkdown.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># What is 2 + 2?</span>

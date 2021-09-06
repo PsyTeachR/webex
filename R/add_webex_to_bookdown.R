@@ -1,20 +1,31 @@
-#' Add webex to bookdown
+#' Add webexercises helper files to bookdown
 #' 
-#' Adds the necessary helper files to an existing bookdown project and edits the _output.yml and _bookdown.yml files accordingly. If the directory does not have a bookdown project in it, a template project will be set up.
+#' Adds the necessary helper files to an existing bookdown project and
+#' edits the _output.yml and _bookdown.yml files accordingly. If the
+#' directory does not have a bookdown project in it, a template
+#' project will be set up.
 #'
 #' @param bookdown_dir The base directory for your bookdown project
-#' @param include_dir The directory where you want to put the css and js files (defaults to "include")
-#' @param script_dir The directory where you want to put the .R script (defaults to "R")
-#' @param output_format The bookdown format you want to add webex to (defaults to "bs4_book") This is typically your default HTML format in the _output.yml file
-#' @param render Whether to render the book after updating (defaults to FALSE)
+#' 
+#' @param include_dir The directory where you want to put the css and
+#'   js files (defaults to "include")
+#' 
+#' @param script_dir The directory where you want to put the .R script
+#'   (defaults to "R")
+#' 
+#' @param output_format The bookdown format you want to add
+#'   webexercises to (defaults to "bs4_book") This is typically your
+#'   default HTML format in the _output.yml file.
+#' 
+#' @param render Whether to render the book after updating (defaults to FALSE).
 #'
 #' @return NULL
 #' @export
 #'
-add_webex_to_bookdown <- function(bookdown_dir = ".", 
-                                  include_dir = "include", 
-                                  script_dir = "R",
-                                  output_format = c("bs4_book", "gitbook", "html_book", "tufte_html_book"),
+add_webexercises_to_bookdown <- function(bookdown_dir = ".", 
+                                         include_dir = "include", 
+                                         script_dir = "R",
+                                         output_format = c("bs4_book", "gitbook", "html_book", "tufte_html_book"),
                                   
                                   render = FALSE) {
   # check inputs
@@ -24,10 +35,10 @@ add_webex_to_bookdown <- function(bookdown_dir = ".",
   output_format <- paste0("bookdown::", match.arg(output_format))
   
   # get helper files
-  css <- system.file("reports/default/webex.css", package = "webex")
-  js <- system.file("reports/default/webex.js", package = "webex")
-  script <- system.file("reports/default/webex.R", package = "webex")
-  index <- system.file("reports/default/index.Rmd", package = "webex")
+  css <- system.file("reports/default/webex.css", package = "webexercises")
+  js <- system.file("reports/default/webex.js", package = "webexercises")
+  script <- system.file("reports/default/webex.R", package = "webexercises")
+  index <- system.file("reports/default/index.Rmd", package = "webexercises")
   
   # make sure include and script directories exist
   incdir <- file.path(bookdown_dir, include_dir)

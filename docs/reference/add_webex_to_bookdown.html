@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a true-or-false question — torf • webexercises</title>
+<title>Add webexercises helper files to bookdown — add_webex_to_bookdown • webexercises</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,11 @@
 
 
 
-<meta property="og:title" content="Create a true-or-false question — torf" />
-<meta property="og:description" content="Create a true-or-false question" />
+<meta property="og:title" content="Add webexercises helper files to bookdown — add_webex_to_bookdown" />
+<meta property="og:description" content="Adds the necessary helper files to an existing bookdown project and
+edits the _output.yml and _bookdown.yml files accordingly. If the
+directory does not have a bookdown project in it, a template
+project will be set up." />
 <meta property="og:image" content="https://psyteachr.github.io/webexercises/reference/figures/card.png" />
 <meta property="og:image:alt" content="Hexagon with the word webexercises" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -105,7 +108,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/psyteachr/webexercises/">
+  <a href="https://github.com/psyteachr/webex/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -123,37 +126,56 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a true-or-false question</h1>
-    <small class="dont-index">Source: <a href='https://github.com/psyteachr/webexercises/blob/master/R/webex_fns.R'><code>R/webex_fns.R</code></a></small>
-    <div class="hidden name"><code>torf.Rd</code></div>
+    <h1>Add webexercises helper files to bookdown</h1>
+    <small class="dont-index">Source: <a href='https://github.com/psyteachr/webex/blob/master/R/add_webex_to_bookdown.R'><code>R/add_webex_to_bookdown.R</code></a></small>
+    <div class="hidden name"><code>add_webex_to_bookdown.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create a true-or-false question</p>
+    <p>Adds the necessary helper files to an existing bookdown project and
+edits the _output.yml and _bookdown.yml files accordingly. If the
+directory does not have a bookdown project in it, a template
+project will be set up.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>torf</span><span class='op'>(</span><span class='va'>answer</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>add_webex_to_bookdown</span><span class='op'>(</span>
+  bookdown_dir <span class='op'>=</span> <span class='st'>"."</span>,
+  include_dir <span class='op'>=</span> <span class='st'>"include"</span>,
+  script_dir <span class='op'>=</span> <span class='st'>"R"</span>,
+  output_format <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"bs4_book"</span>, <span class='st'>"gitbook"</span>, <span class='st'>"html_book"</span>, <span class='st'>"tufte_html_book"</span><span class='op'>)</span>,
+  render <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>answer</th>
-      <td><p>Logical value TRUE or FALSE, corresponding to the correct answer.</p></td>
+      <th>bookdown_dir</th>
+      <td><p>The base directory for your bookdown project</p></td>
+    </tr>
+    <tr>
+      <th>include_dir</th>
+      <td><p>The directory where you want to put the css and
+js files (defaults to "include")</p></td>
+    </tr>
+    <tr>
+      <th>script_dir</th>
+      <td><p>The directory where you want to put the .R script
+(defaults to "R")</p></td>
+    </tr>
+    <tr>
+      <th>output_format</th>
+      <td><p>The bookdown format you want to add
+webexercises to (defaults to "bs4_book") This is typically your
+default HTML format in the _output.yml file.</p></td>
+    </tr>
+    <tr>
+      <th>render</th>
+      <td><p>Whether to render the book after updating (defaults to FALSE).</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Writes html code that creates an option box widget with TRUE or FALSE as alternatives. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for further examples.</p>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># True or False? 2 + 2 = 4</span>
-<span class='fu'>torf</span><span class='op'>(</span><span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "&lt;select class='webex-select'&gt;&lt;option value='blank'&gt;&lt;/option&gt;&lt;option value='answer'&gt;TRUE&lt;/option&gt;&lt;option value=''&gt;FALSE&lt;/option&gt;&lt;/select&gt;"</div><div class='input'>
-<span class='co'># True or False? The month of April has 31 days.</span>
-<span class='fu'>torf</span><span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "&lt;select class='webex-select'&gt;&lt;option value='blank'&gt;&lt;/option&gt;&lt;option value=''&gt;TRUE&lt;/option&gt;&lt;option value='answer'&gt;FALSE&lt;/option&gt;&lt;/select&gt;"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -1,39 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://psyteachr.github.io/webex/index.html</loc>
+    <loc>https://psyteachr.github.io/webexercises/index.html</loc>
   </url>
   <url>
-    <loc>https://psyteachr.github.io/webex/reference/escape_regex.html</loc>
+    <loc>https://psyteachr.github.io/webexercises/reference/add_webexercises_to_bookdown.html</loc>
   </url>
   <url>
-    <loc>https://psyteachr.github.io/webex/reference/fitb.html</loc>
+    <loc>https://psyteachr.github.io/webexercises/reference/escape_regex.html</loc>
   </url>
   <url>
-    <loc>https://psyteachr.github.io/webex/reference/hide.html</loc>
+    <loc>https://psyteachr.github.io/webexercises/reference/fitb.html</loc>
   </url>
   <url>
-    <loc>https://psyteachr.github.io/webex/reference/mcq.html</loc>
+    <loc>https://psyteachr.github.io/webexercises/reference/hide.html</loc>
   </url>
   <url>
-    <loc>https://psyteachr.github.io/webex/reference/round2.html</loc>
+    <loc>https://psyteachr.github.io/webexercises/reference/longmcq.html</loc>
   </url>
   <url>
-    <loc>https://psyteachr.github.io/webex/reference/strip_lzero.html</loc>
+    <loc>https://psyteachr.github.io/webexercises/reference/mcq.html</loc>
   </url>
   <url>
-    <loc>https://psyteachr.github.io/webex/reference/style_widgets.html</loc>
+    <loc>https://psyteachr.github.io/webexercises/reference/round2.html</loc>
   </url>
   <url>
-    <loc>https://psyteachr.github.io/webex/reference/torf.html</loc>
+    <loc>https://psyteachr.github.io/webexercises/reference/strip_lzero.html</loc>
   </url>
   <url>
-    <loc>https://psyteachr.github.io/webex/reference/total_correct.html</loc>
+    <loc>https://psyteachr.github.io/webexercises/reference/style_widgets.html</loc>
   </url>
   <url>
-    <loc>https://psyteachr.github.io/webex/reference/unhide.html</loc>
+    <loc>https://psyteachr.github.io/webexercises/reference/torf.html</loc>
   </url>
   <url>
-    <loc>https://psyteachr.github.io/webex/reference/webex_default.html</loc>
+    <loc>https://psyteachr.github.io/webexercises/reference/total_correct.html</loc>
+  </url>
+  <url>
+    <loc>https://psyteachr.github.io/webexercises/reference/unhide.html</loc>
+  </url>
+  <url>
+    <loc>https://psyteachr.github.io/webexercises/reference/webexercises_default.html</loc>
   </url>
 </urlset>

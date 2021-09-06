@@ -14,16 +14,16 @@ description: |
 # automatically create a bib database for R packages
 # add any packages you want to cite here
 knitr::write_bib(c(
-  .packages(), 'bookdown', 'webex'
+  .packages(), 'bookdown', 'webexercises'
 ), 'packages.bib')
 
 ```
 
-# Webex {-}
+# Webexercises {-}
 
 This is a Web Exercise template created by the [psychology teaching team at the University of Glasgow](http://www.psy.gla.ac.uk), based on ideas from [Software Carpentry](https://software-carpentry.org/lessons/). This template shows how instructors can easily create lightweight, interactive web documents that students can use in self-guided learning.
 
-The webex package provides a number of functions that you use in [inline R code](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) to create HTML widgets (text boxes, pull down menus, buttons that reveal hidden content). Examples are given next. Render the book to see how they work.
+The `{webexercises}` package provides a number of functions that you use in [inline R code](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) to create HTML widgets (text boxes, pull down menus, buttons that reveal hidden content). Examples are given next. Render the book to see how they work.
 
 **NOTE: To use the widgets in the compiled HTML files, you need to have a JavaScript-enabled browser.**
 

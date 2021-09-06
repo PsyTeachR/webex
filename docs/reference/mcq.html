@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a multiple-choice question — mcq • webex</title>
+<title>Create a multiple-choice question — mcq • webexercises</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,8 +48,8 @@
 
 <meta property="og:title" content="Create a multiple-choice question — mcq" />
 <meta property="og:description" content="Create a multiple-choice question" />
-<meta property="og:image" content="https://psyteachr.github.io/webex/reference/figures/card.png" />
-<meta property="og:image:alt" content="Hexagon with the word webex" />
+<meta property="og:image" content="https://psyteachr.github.io/webexercises/reference/figures/card.png" />
+<meta property="og:image:alt" content="Hexagon with the word webexercises" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@dalejbarr" />
 <meta name="twitter:site" content="@psyteachr" />
@@ -83,8 +83,8 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">webex</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.1.9101</span>
+        <a class="navbar-link" href="../index.html">webexercises</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -105,7 +105,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/psyteachr/webex/">
+  <a href="https://github.com/psyteachr/webexercises/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -124,7 +124,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Create a multiple-choice question</h1>
-    <small class="dont-index">Source: <a href='https://github.com/psyteachr/webex/blob/master/R/webex_fns.R'><code>R/webex_fns.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/psyteachr/webexercises/blob/master/R/webex_fns.R'><code>R/webex_fns.R</code></a></small>
     <div class="hidden name"><code>mcq.Rd</code></div>
     </div>
 
@@ -139,21 +139,24 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>opts</th>
-      <td><p>Vector of alternatives. The correct answer is the element(s) of this vector named 'answer'.</p></td>
+      <td><p>Vector of alternatives. The correct answer is the
+element(s) of this vector named 'answer'.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Writes html code that creates an option box widget, with a single correct answer. Call this function inline in an RMarkdown document. See the Web Exercises RMarkdown template for further examples.</p>
+    <p>Writes html code that creates an option box widget, with one or 
+  more correct answers. Call this function inline in an RMarkdown document. 
+  See the Web Exercises RMarkdown template for further examples.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># How many planets orbit closer to the sun than the Earth?</span>
 <span class='fu'>mcq</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, answer <span class='op'>=</span> <span class='fl'>2</span>, <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "&lt;select class='webex-solveme' data-answer='[\"2\"]'&gt; &lt;option&gt;&lt;/option&gt; &lt;option&gt;1&lt;/option&gt; &lt;option&gt;2&lt;/option&gt; &lt;option&gt;3&lt;/option&gt;&lt;/select&gt;"</div><div class='input'>
+</div><div class='output co'>#&gt; [1] "&lt;select class='webex-select'&gt;&lt;option value='blank'&gt;&lt;/option&gt;&lt;option value=''&gt;1&lt;/option&gt;&lt;option value='answer'&gt;2&lt;/option&gt;&lt;option value=''&gt;3&lt;/option&gt;&lt;/select&gt;"</div><div class='input'>
 <span class='co'># Which actor played Luke Skywalker in the movie Star Wars?</span>
 <span class='fu'>mcq</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Alec Guinness"</span>, answer <span class='op'>=</span> <span class='st'>"Mark Hamill"</span>, <span class='st'>"Harrison Ford"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "&lt;select class='webex-solveme' data-answer='[\"Mark Hamill\"]'&gt; &lt;option&gt;&lt;/option&gt; &lt;option&gt;Alec Guinness&lt;/option&gt; &lt;option&gt;Mark Hamill&lt;/option&gt; &lt;option&gt;Harrison Ford&lt;/option&gt;&lt;/select&gt;"</div></pre>
+</div><div class='output co'>#&gt; [1] "&lt;select class='webex-select'&gt;&lt;option value='blank'&gt;&lt;/option&gt;&lt;option value=''&gt;Alec Guinness&lt;/option&gt;&lt;option value='answer'&gt;Mark Hamill&lt;/option&gt;&lt;option value=''&gt;Harrison Ford&lt;/option&gt;&lt;/select&gt;"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

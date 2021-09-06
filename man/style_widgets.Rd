@@ -2,7 +2,7 @@
 % Please edit documentation in R/webex_fns.R
 \name{style_widgets}
 \alias{style_widgets}
-\title{Change webex widget style}
+\title{Change webexercises widget style}
 \usage{
 style_widgets(default = "red", correct = "blue")
 }
@@ -12,7 +12,7 @@ style_widgets(default = "red", correct = "blue")
 \item{correct}{The colour of the widgets when the correct answer not filled in (defaults to red).}
 }
 \description{
-Change webex widget style
+Change webexercises widget style
 }
 \details{
 Call this function inline in an RMarkdown document to change the default and correct colours using any valid CSS colour word (e.g., red, rgb(255,0,0), hsl(0, 100%, 50%) or #FF0000).

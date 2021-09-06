@@ -10,7 +10,7 @@ test_that("empty bookdown directory", {
   oyml <- file.path(bookdown_dir, "_output.yml")
   byml <- file.path(bookdown_dir, "_bookdown.yml")
   
-  expect_message(add_webex_to_bookdown(bookdown_dir), "updated")
+  expect_message(add_webexercises_to_bookdown(bookdown_dir), "updated")
   
   expect_true(file.exists(oyml))
   expect_silent(check_oyaml <- yaml::read_yaml(oyml))
@@ -50,7 +50,7 @@ test_that("empty bookdown_dir, include_dir", {
   yml <- file.path(".", "_output.yml")
   byml <- file.path(".", "_bookdown.yml")
   
-  expect_message(add_webex_to_bookdown(bookdown_dir, include_dir, script_dir), "updated")
+  expect_message(add_webexercises_to_bookdown(bookdown_dir, include_dir, script_dir), "updated")
   
   expect_true(file.exists(yml))
   expect_silent(check_yaml <- yaml::read_yaml(yml))
@@ -68,7 +68,7 @@ test_that("empty bookdown_dir, include_dir", {
   
   # new output
   output_format2 <- "bookdown::html_book"
-  expect_message(add_webex_to_bookdown(bookdown_dir, include_dir, script_dir, "html_book"), "updated")
+  expect_message(add_webexercises_to_bookdown(bookdown_dir, include_dir, script_dir, "html_book"), "updated")
   expect_true(file.exists(yml))
   expect_silent(check_yaml <- yaml::read_yaml(yml))
   
@@ -121,7 +121,7 @@ delete_merged_file: true
 clean: []
 ", byml)
   
-  expect_message(add_webex_to_bookdown(), "updated")
+  expect_message(add_webexercises_to_bookdown(), "updated")
   
   expect_true(file.exists(yml))
   expect_silent(check_yaml <- yaml::read_yaml(yml))
@@ -151,20 +151,20 @@ test_that("new books", {
   render = interactive()
   
   # needs visual inspection to check sites
-  add_webex_to_bookdown(bookdown_dir = "demo_bs4",
-                        output_format = "bs4_book",
-                        render = render)
+  add_webexercises_to_bookdown(bookdown_dir = "demo_bs4",
+                               output_format = "bs4_book",
+                               render = render)
   
-  add_webex_to_bookdown(bookdown_dir = "demo_git",
-                        output_format = "gitbook",
-                        render = render)
+  add_webexercises_to_bookdown(bookdown_dir = "demo_git",
+                               output_format = "gitbook",
+                               render = render)
   
-  add_webex_to_bookdown(bookdown_dir = "demo_html",
-                        output_format = "html_book",
-                        render = render)
+  add_webexercises_to_bookdown(bookdown_dir = "demo_html",
+                               output_format = "html_book",
+                               render = render)
   
-  add_webex_to_bookdown(bookdown_dir = "demo_tufte",
-                        output_format = "tufte_html_book",
-                        render = render)
+  add_webexercises_to_bookdown(bookdown_dir = "demo_tufte",
+                               output_format = "tufte_html_book",
+                               render = render)
   
 })

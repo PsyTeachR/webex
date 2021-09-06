@@ -1,4 +1,4 @@
 library(testthat)
-library(webex)
+library(webexercises)
 
-test_check("webex")
+test_check("webexercises")

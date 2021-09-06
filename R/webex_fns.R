@@ -179,7 +179,7 @@ unhide <- function() {
   paste0("\n</div>\n")
 }
 
-#' Change webex widget style
+#' Change webexercises widget style
 #'
 #' @param default The colour of the widgets when the correct answer is not filled in (defaults to blue).
 #' @param correct The colour of the widgets when the correct answer not filled in (defaults to red).

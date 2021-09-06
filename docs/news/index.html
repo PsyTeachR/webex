@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • webex</title>
+<title>Changelog • webexercises</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -47,8 +47,8 @@
 
 
 <meta property="og:title" content="Changelog" />
-<meta property="og:image" content="https://psyteachr.github.io/webex/reference/figures/card.png" />
-<meta property="og:image:alt" content="Hexagon with the word webex" />
+<meta property="og:image" content="https://psyteachr.github.io/webexercises/reference/figures/card.png" />
+<meta property="og:image:alt" content="Hexagon with the word webexercises" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@dalejbarr" />
 <meta name="twitter:site" content="@psyteachr" />
@@ -82,8 +82,8 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">webex</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.1.9101</span>
+        <a class="navbar-link" href="../index.html">webexercises</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -104,7 +104,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/psyteachr/webex/">
+  <a href="https://github.com/psyteachr/webexercises/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -123,31 +123,47 @@
   <div class="col-md-9 contents">
     <div class="page-header">
       <h1 data-toc-skip>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/psyteachr/webex/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+      <small>Source: <a href='https://github.com/psyteachr/webexercises/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="webex-0919101" class="section level1">
-<h1 class="page-header" data-toc-text="0.9.1.9101">
-<a href="#webex-0919101" class="anchor"></a>webex 0.9.1.9101<small> Unreleased </small>
-</h1>
+    <div id="webexercises-100" class="section level1">
+<h1 class="page-header" data-toc-text="1.0.0">
+<a href="#webexercises-100" class="anchor"></a>webexercises 1.0.0</h1>
 <ul>
-<li>updated css to prevent a conflict with the new bookdown</li>
-<li>added <code>regex</code> argument example to <code><a href="../reference/fitb.html">fitb()</a></code> on the template</li>
-<li>fixed <code>ignore_ws</code> argument example in the template</li>
+<li>new package name: webexercises</li>
+<li>updated method to remove smart quotes when rmarkdown &gt;= 2.2</li>
+<li>new styles for correct and incorrect answers</li>
+<li>
+<code><a href="../reference/longmcq.html">longmcq()</a></code> function for MCQs with long answers (creates a radiobutton interface)</li>
+<li>
+<code>add_webex_to_bookdown()</code> new function to add helper functions to bookdown books</li>
 </ul>
 </div>
-    <div id="webex-0919100" class="section level1">
-<h1 class="page-header" data-toc-text="0.9.1.9100">
-<a href="#webex-0919100" class="anchor"></a>webex 0.9.1.9100<small> Unreleased </small>
-</h1>
+    <div id="webex-092" class="section level1">
+<h1 class="page-header" data-toc-text="0.9.2">
+<a href="#webex-092" class="anchor"></a>webex 0.9.2</h1>
+<div id="bug-fixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bug-fixes" class="anchor"></a>Bug fixes</h2>
 <ul>
-<li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
+<li>(<a href='https://github.com/psyteachr/webexercises/issues/12'>#12</a>, <a href='https://github.com/debruine'>@debruine</a>) updated css to prevent a conflict with the new bookdown</li>
+<li>(<a href='https://github.com/psyteachr/webexercises/issues/11'>#11</a>, <a href='https://github.com/Benjou'>@Benjou</a>) MCQs where correct answer contains an apostrophe now parsed correctly</li>
 </ul>
+</div>
+<div id="misc" class="section level2">
+<h2 class="hasAnchor">
+<a href="#misc" class="anchor"></a>Misc</h2>
+<ul>
+<li>added <code>regex</code> argument example to <code><a href="../reference/fitb.html">fitb()</a></code> on the template</li>
+<li>fixed <code>ignore_ws</code> argument example in the template</li>
+<li>removed note about need to “Open in Browser” since RStudio now includes a JS-enabled browser</li>
+<li>Added this <code>NEWS.md</code> file to track changes to the package.</li>
+</ul>
+</div>
 </div>
     <div id="webex-091" class="section level1">
 <h1 class="page-header" data-toc-text="0.9.1">
-<a href="#webex-091" class="anchor"></a>webex 0.9.1<small> 2019-05-03 </small>
-</h1>
+<a href="#webex-091" class="anchor"></a>webex 0.9.1</h1>
 <ul>
 <li>On CRAN!</li>
 </ul>

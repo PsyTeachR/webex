@@ -1,7 +1,7 @@
-url: https://psyteachr.github.io/webex
+url: https://psyteachr.github.io/webexercises
 
 home:
-  title: webex
+  title: webexercises
   description: Create Interactive Web Exercises in R Markdown.
   strip_header: false
   
@@ -9,7 +9,7 @@ template:
   opengraph:
     image:
       src: man/figures/card.png
-      alt: "Hexagon with the word webex"
+      alt: "Hexagon with the word webexercises"
     twitter:
       creator: "@dalejbarr"
       site: "@psyteachr"
@@ -22,10 +22,11 @@ reference:
   - '`fitb`'
   - '`mcq`'
   - '`torf`'
+  - '`longmcq`'
   - '`hide`'
   - '`unhide`'
   - '`total_correct`'
-  - '`webex_default`'
+  - '`webexercises_default`'
   - '`style_widgets`'
 - title: Helper Functions
   desc: ~
@@ -33,4 +34,4 @@ reference:
   - '`escape_regex`'
   - '`round2`'
   - '`strip_lzero`'
-  
+  - '`add_webexercises_to_bookdown`'

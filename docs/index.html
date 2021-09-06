@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>webex • webex</title>
+<title>webexercises • webexercises</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -17,10 +17,10 @@
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="webex">
+<script src="pkgdown.js"></script><meta property="og:title" content="webexercises">
 <meta property="og:description" content="Create Interactive Web Exercises in R Markdown.">
-<meta property="og:image" content="https://psyteachr.github.io/webex/reference/figures/card.png">
-<meta property="og:image:alt" content="Hexagon with the word webex">
+<meta property="og:image" content="https://psyteachr.github.io/webexercises/reference/figures/card.png">
+<meta property="og:image:alt" content="Hexagon with the word webexercises">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@dalejbarr">
 <meta name="twitter:site" content="@psyteachr">
@@ -41,8 +41,8 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">webex</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.1.9101</span>
+        <a class="navbar-link" href="index.html">webexercises</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -63,7 +63,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/psyteachr/webex/">
+  <a href="https://github.com/psyteachr/webexercises/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -82,25 +82,25 @@
   <div class="contents col-md-9">
 
 <p><link href="inst/reports/default/webex.css" rel="stylesheet"></p>
-<div id="the-webex-package" class="section level1">
+<div id="the-webexercises-package" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#the-webex-package" class="anchor"></a>The webex package</h1></div>
-<p><img src="https://raw.githubusercontent.com/PsyTeachR/misc/master/img/webex.001.png" style="float:right; max-width:280px; width: 25%;"></p>
-<p>The goal of webex is to enable instructors to easily create interactive web pages that students can use in self-guided learning. Although webex has fewer features than RStudio’s <a href="https://rstudio.github.io/learnr/">learnr</a> package, it is more lightweight: whereas learnr tutorials must be either hosted on a shiny server or run locally, webex creates standalone HTML files that require only a JavaScript-enabled browser. It is also extremely simple to use.</p>
+<a href="#the-webexercises-package" class="anchor"></a>The <code>{webexercises}</code> package</h1></div>
+<p><img src="https://raw.githubusercontent.com/PsyTeachR/misc/master/img/webexercises.001.png" style="float:right; max-width:280px; width: 25%;"></p>
+<p>The goal of <a href="https://github.com/psyteachr/webexercises">webexercises</a> is to enable instructors to easily create interactive web pages that students can use in self-guided learning. Although <a href="https://github.com/psyteachr/webexercises">webexercises</a> has fewer features than RStudio’s <a href="https://rstudio.github.io/learnr/">learnr</a> package, it is more lightweight: whereas <code>{learnr}</code> tutorials must be either hosted on a shiny server or run locally, <a href="https://github.com/psyteachr/webexercises">webexercises</a> creates standalone HTML files that require only a JavaScript-enabled browser. It is also extremely simple to use.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install webex from CRAN using:</p>
+<p>You can install <a href="https://github.com/psyteachr/webexercises">webexercises</a> from CRAN using:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"webex"</span><span class="op">)</span></code></pre></div>
-<p>You can install the development version of webex from <a href="https://github.com/PsyTeachR/webex">GitHub</a> with:</p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"webexercises"</span><span class="op">)</span></code></pre></div>
+<p>You can install the development version from <a href="https://github.com/PsyTeachR/webexercises">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"psyteachr/webex"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"psyteachr/webexercises"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="creating-interactive-widgets-with-inline-code" class="section level2">
 <h2 class="hasAnchor">
 <a href="#creating-interactive-widgets-with-inline-code" class="anchor"></a>Creating interactive widgets with inline code</h2>
-<p>The webex package provides functions that create HTML widgets using <a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf">inline R code</a>. These functions are:</p>
+<p>The webexercises package provides functions that create HTML widgets using <a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf">inline R code</a>. These functions are:</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">function</th>
@@ -124,13 +124,18 @@
 <td align="left">TRUE or FALSE question</td>
 </tr>
 <tr class="even">
+<td align="left"><code><a href="reference/longmcq.html">longmcq()</a></code></td>
+<td align="left">radio buttons</td>
+<td align="left">MCQs with long answers</td>
+</tr>
+<tr class="odd">
 <td align="left">
 <code><a href="reference/hide.html">hide()</a></code> and <code><a href="reference/unhide.html">unhide()</a></code>
 </td>
 <td align="left">button</td>
 <td align="left">solution revealed when clicked</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code><a href="reference/total_correct.html">total_correct()</a></code></td>
 <td align="left">text</td>
 <td align="left">updating total correct</td>
@@ -138,12 +143,41 @@
 </tbody>
 </table>
 <p>The appearance of the text box and pull-down menu widgets changes when users enter the correct answer. Answers can be either static or dynamic (i.e., specified using R code). Widget styles can be changed using <code><a href="reference/style_widgets.html">style_widgets()</a></code>.</p>
-<p>Examples are provided in the <strong>Web Exercises</strong> R Markdown template. To create a file from the webex template in RStudio, click <code>File -&gt; New File... -&gt; RMarkdown</code> and in the dialog box that appears, select <code>From Template</code> and choose <code>Web Exercises</code>.</p>
+<p>Examples are provided in the <strong>Web Exercises</strong> R Markdown template. To create a file from the webexercises template in RStudio, click <code>File -&gt; New File... -&gt; RMarkdown</code> and in the dialog box that appears, select <code>From Template</code> and choose <code>Web Exercises</code>.</p>
 <p>Alternatively (or if you’re not using RStudio) use:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">rmarkdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgs.rstudio.com/rmarkdown/reference/draft.html">draft</a></span><span class="op">(</span><span class="st">"exercises.Rmd"</span>, <span class="st">"webex"</span>, <span class="st">"webex"</span><span class="op">)</span></code></pre></div>
-<p>Knit the file to HTML to see how it works. <strong>Note: The widgets only function in a JavaScript-enabled browser. The RStudio built-in browser does not have JavaScript. Click the “Open in Browser” button to use your operating system’s browser.</strong></p>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+<code class="sourceCode R"><span class="fu">rmarkdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgs.rstudio.com/rmarkdown/reference/draft.html">draft</a></span><span class="op">(</span><span class="st">"exercises.Rmd"</span>, <span class="st">"webexercises"</span>, <span class="st">"webexercises"</span><span class="op">)</span></code></pre></div>
+<p>Knit the file to HTML to see how it works. <strong>Note: The widgets only function in a JavaScript-enabled browser.</strong></p>
+</div>
+<div id="bookdown" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bookdown" class="anchor"></a>Bookdown</h2>
+<p>You can add webexercises to a bookdown project or start a new bookdown project using <code>add_webex_to_bookdown()</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># create a new book</span>
+<span class="co"># use default includes and scripts directories (include and R)</span>
+<span class="fu"><a href="reference/add_webexercises_to_bookdown.html">add_webexercises_to_bookdown</a></span><span class="op">(</span>bookdown_dir <span class="op">=</span> <span class="st">"demo_bs4"</span>,
+                             output_format <span class="op">=</span> <span class="st">"bs4_book"</span>,
+                             render <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+
+<span class="fu"><a href="reference/add_webexercises_to_bookdown.html">add_webexercises_to_bookdown</a></span><span class="op">(</span>bookdown_dir <span class="op">=</span> <span class="st">"demo_git"</span>,
+                             output_format <span class="op">=</span> <span class="st">"gitbook"</span>,
+                             render <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+
+<span class="fu"><a href="reference/add_webexercises_to_bookdown.html">add_webexercises_to_bookdown</a></span><span class="op">(</span>bookdown_dir <span class="op">=</span> <span class="st">"demo_html"</span>,
+                             output_format <span class="op">=</span> <span class="st">"html_book"</span>,
+                             render <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+
+<span class="fu"><a href="reference/add_webexercises_to_bookdown.html">add_webexercises_to_bookdown</a></span><span class="op">(</span>bookdown_dir <span class="op">=</span> <span class="st">"demo_tufte"</span>,
+                             output_format <span class="op">=</span> <span class="st">"tufte_html_book"</span>,
+                             render <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+
+<span class="co"># update an existing book with custom include and script directories</span>
+<span class="fu"><a href="reference/add_webexercises_to_bookdown.html">add_webexercises_to_bookdown</a></span><span class="op">(</span>bookdown_dir <span class="op">=</span> <span class="st">"."</span>,
+                             include_dir <span class="op">=</span> <span class="st">"www"</span>,
+                             script_dir <span class="op">=</span> <span class="st">"scripts"</span>,
+                             output_format <span class="op">=</span> <span class="st">"gitbook"</span><span class="op">)</span></code></pre></div>
+<p><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a><br>This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 </div>
 </div>
 
@@ -153,9 +187,7 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=webex">https://​cloud.r-project.org/​package=webex</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/psyteachr/webex/">https://​github.com/​psyteachr/​webex/​</a>
+<li>Browse source code at <br><a href="https://github.com/psyteachr/webexercises/">https://​github.com/​psyteachr/​webexercises/​</a>
 </li>
 </ul>
 </div>

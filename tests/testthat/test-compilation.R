@@ -3,7 +3,7 @@ test_that("minimal compile", {
   tf <- tempfile(fileext=".Rmd")
   cat("---",
       "title: \"Web Exercises\"",
-      "output: webex::webex_default",
+      "output: webexercises::webexercises_default",
       "---", "",
       "```{r test, webex.hide=\"click me\"}",
       "rnorm(10)",
