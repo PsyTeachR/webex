@@ -23,7 +23,8 @@ Writes html code that creates a radio button widget, with a
 # What is a p-value?
 opts <- c(
   "the probability that the null hypothesis is true",
-  answer = "the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true",
+  answer = paste("the probability of the observed, or more extreme, data",
+                 "under the assumption that the null-hypothesis is true"),
   "the probability of making an error in your conclusion"
 )
 longmcq(opts)
